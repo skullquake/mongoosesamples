@@ -1,13 +1,17 @@
-#include<windows.h>
+//#include<windows.h>
+#include<boost/uuid/uuid.hpp>
+#include<boost/uuid/uuid_generators.hpp>
+#include<boost/uuid/uuid_io.hpp>
 #include<unistd.h>
 #include<signal.h>
 #include<mongoosecpp/Server.h>
 #include<mongoosecpp/WebController.h>
+#include<string>
 #include<iostream>
 #include<json/json.h>
 using namespace std;
 using namespace Mongoose;
-void r(Json::Value&,std::vector<std::string>,int,long long&);
+void r(Json::Value&,std::vector<std::string>,int);
 class MyController:public WebController{
 	public: 
 		void tree(Request &request, StreamResponse &response){
@@ -27,10 +31,9 @@ class MyController:public WebController{
 			j["label"]="name";
 			j["items"]=Json::Value(Json::arrayValue);
 			Json::Value root;
-			long long idx=0;
-			root["idx"]=idx++;
+			root["idx"]=boost::uuids::to_string(boost::uuids::random_generator()());
 			root["name"]="foo";
-			r(root,v,d,idx);
+			r(root,v,d);
 			j["items"].append(root);
 			Json::StyledWriter styledWriter;
 			response.setHeader("Content-type","application/json");
@@ -121,25 +124,27 @@ int main(int argc,char** argv){
 	server.setOption("document_root","./pub");
 	server.start(); 
 	while(1){
-		Sleep(10000);
+		sleep(10000);
 	}
 }
-void r(Json::Value& j,std::vector<std::string> v,int i,long long& idx){
+void r(Json::Value& j,std::vector<std::string> v,int i){
 	if(i<=0){
 		return;
 	}else{
+
+
 		for(std::string x:v){
 			Json::Value itm;
 			itm["name"]=x;
-			itm["idx"]=idx++;
+			itm["idx"]=boost::uuids::to_string(boost::uuids::random_generator()());
 			itm["children"]=Json::Value(Json::arrayValue);
 			for(std::string _x:v){
 				Json::Value citm;
 				citm["name"]=_x;
-				citm["idx"]=idx++;
+				citm["idx"]=boost::uuids::to_string(boost::uuids::random_generator()());
 				if(i>=2){
 					citm["children"]=Json::Value(Json::arrayValue);
-					r(citm,v,i-1,idx);
+					r(citm,v,i-1);
 				}
 				itm["children"].append(citm);
 			}
@@ -147,3 +152,4 @@ void r(Json::Value& j,std::vector<std::string> v,int i,long long& idx){
 		}
 	}
 }
+

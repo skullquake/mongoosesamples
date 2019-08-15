@@ -1,10 +1,10 @@
 CXX=g++
 CXXFLAGS=\
-     `pkg-config --cflags mongoosecpp`\
-     `pkg-config --cflags jsoncpp`
+	`pkg-config --cflags mongoosecpp`\
+	`pkg-config --cflags jsoncpp`
 LIBS=\
-     `pkg-config --libs mongoosecpp`\
-     `pkg-config --libs jsoncpp`
+	`pkg-config --libs mongoosecpp`\
+	`pkg-config --libs jsoncpp`
 SRC=./src/a.cpp
 BIN=./bin/a
 $(BIN):$(SRC)
