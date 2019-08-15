@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			json
+		</title>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css"> 
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/tundra/tundra.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/font-awesome.css">
+		<link rel="stylesheet" href="/css/themes/blue.css">
+		<script
+			data-dojo-config="
+			async:1,
+			dojoBlankHtmlUrl:'/blank.html',
+			packages:[
+				{
+					name: 'custom',
+					location:location.pathname.replace(/\/[^/]+$/,'')+'/js/custom'
+				},
+				{
+					name:'bootstrap',
+					location:'/lib/Dojo-Bootstrap'
+				}
+			]"
+			src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+		>
+            </script>
+    
+
+		</script>
+	</head>
+	<body>
+	<body style="margin-top: 256px;">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="/"> 
+						<img src="/img/brandlogo.png" style="margin-top: -10px; height: 40px;">
+					</a>
+					<ul class="nav"></ul>
+				</div>
+			</div>
+			<header class="jumbotron subhead">
+				<h3>Json Test</h3>
+				<p class="lead">
+					Tree Test
+				</p>
+			</header>
+		</div>
+		<div class="container">
+			<div class="panel">
+				<div class="panel-heading">
+					Test
+					<btn id="expand-button" style="margin-top:-5px;" class="btn btn-inverse pull-right">Toggle</btn>
+				</div>
+				<div class="panel-body">
+					<div id="example"></div>
+
+				</div>
+			</div>
+		</div>
+		<script>
+			require(
+				[
+					"dojo/data/ItemFileReadStore",
+					"dijit/tree/ForestStoreModel",
+					"dijit/tree/ObjectStoreModel",
+					"dijit/Tree",
+					"dojo/parser",
+					"dojo/query",
+					"dojo/dom",
+					"dojo/request",
+					"dojo/json",
+					"dojo/_base/array",
+					"dojo/domReady!"
+				],
+				function(
+					ItemFileReadStore,
+					ForestStoreModel,
+					ObjectStoreModel,
+					Tree,
+					parser,
+					query,
+					dom,
+					request,
+					json,
+					array,
+					ready
+				){      
+					request.get(
+						"/json?depth=2",
+						{
+							handleAs:"json"
+						}
+					).then(
+						function(sdat){
+							var stor=new ItemFileReadStore(
+							    {
+								//mayHaveChildren:true,
+								data: sdat
+							    }
+							);
+							var fsm=new ForestStoreModel(
+							    {
+								store:stor,
+								query:{
+								    //type:'continent'
+								},
+								rootId:0,
+								rootLabel:'root'
+							    }
+							);
+							var tree=new Tree(
+							    {
+								model:fsm,
+								showRoot:true,
+								autoExpand:false,
+								openOnClick: true
+							    }
+							);
+							tree.placeAt(dojo.query('#example')[0]);
+							var _=true;
+							query("#expand-button").on(
+								"click",
+								dojo.hitch(
+									function(e){
+										_?tree.expandAll():tree.collapseAll();
+										_=!_;
+										//console.log(tree);
+										//tree.expandAll()
+									}
+								)
+							);
+
+						}
+					);
+								
+				    }
+				)
+		</script>
+	</body>
+</html>
+        
+    
+    
+
