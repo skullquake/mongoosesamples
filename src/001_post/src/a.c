@@ -36,7 +36,13 @@ static void ev_handler(struct mg_connection *nc,int ev,void *ev_data){
 int main(int argc,char *argv[]){
 	struct mg_mgr mgr;
 	mg_mgr_init(&mgr,NULL);
-	mg_connect_http(&mgr,ev_handler,"http://co.za/whois.shtml",NULL,NULL);
+	mg_connect_http(
+		&mgr,
+		ev_handler,
+		"http://httpbin.org/post",
+		"Content-Type: application/json\r\n",
+		"{\"foo\":\"bar\"}"
+	);
 	while(s_exit_flag==0){
 		mg_mgr_poll(&mgr,1000);
 	}
