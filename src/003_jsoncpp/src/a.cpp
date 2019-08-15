@@ -10,7 +10,7 @@ using namespace Mongoose;
 void r(Json::Value&,std::vector<std::string>,int,long long&);
 class MyController:public WebController{
 	public: 
-		void hello(Request &request, StreamResponse &response){
+		void tree(Request &request, StreamResponse &response){
 			int d;
 			try{
 				d=std::stoi(htmlEntities(request.get("depth")));
@@ -36,8 +36,81 @@ class MyController:public WebController{
 			response.setHeader("Content-type","application/json");
 			response<<styledWriter.write(j)<<std::endl;
 		}
+		void chart(Request &request, StreamResponse &response){
+			Json::Value j;
+			j["identifier"]="symbol";
+			j["idAttribute"]="symbol";
+			j["symbol"]="labe";
+			j["label"]="name";
+			j["items"]=Json::Value(Json::arrayValue);
+			std::vector<std::string> vsym={
+				"ANDT",
+				"ATEU",
+				"BGCN",
+				"BAYC",
+				"CRCR",
+				"DTOA"
+			};
+			for(int i=0;i<8;i++){
+				Json::Value itm;
+				itm["symbol"]=vsym[rand()%vsym.size()];
+				itm["historicPrice"]=Json::Value(Json::arrayValue);
+				for(int j=0;j<8;j++){
+					itm["historicPrice"].append((rand()%100)/100.0);
+				}
+				j["items"].append(itm);
+			}
+			Json::StyledWriter styledWriter;
+			response.setHeader("Content-type","application/json");
+			response<<styledWriter.write(j)<<std::endl;
+		}
+		void piechart(Request &request, StreamResponse &response){
+			Json::Value j=Json::Value(Json::arrayValue);
+			for(int i=0;i<8;i++){
+				Json::Value itm;
+				itm["x"]=1;
+				itm["y"]=(rand()%100)/100.0;
+				j.append(itm);
+			}
+			Json::StyledWriter styledWriter;
+			response.setHeader("Content-type","application/json");
+			response<<styledWriter.write(j)<<std::endl;
+		}
+		void scatterchart(Request &request, StreamResponse &response){
+			int nval;
+			try{
+				nval=std::stoi(htmlEntities(request.get("nval")));
+			}catch (std::invalid_argument const &e){
+				std::cout << "Bad input: std::invalid_argument thrown" << '\n';
+				nval=8;
+			}catch (std::out_of_range const &e){
+				std::cout << "Integer overflow: std::out_of_range thrown" << '\n';
+				nval=8;
+			}
+
+			Json::Value j;
+			std::vector<std::string> snam{"foo","bar","baz","qux","klutz"}; 
+			for(
+				std::vector<std::string>::const_iterator it=snam.begin();
+				it!=snam.end();
+				it++
+			){
+				Json::Value itm;
+				for(int i=0;i<nval;i++){
+					itm.append(rand());
+				}
+				j[*it]=itm;
+			}
+			Json::StyledWriter styledWriter;
+			response.setHeader("Content-type","application/json");
+			response<<styledWriter.write(j)<<std::endl;
+		}
+
 		void setup(){
-			addRoute("GET","/json",MyController,hello);
+			addRoute("GET","/tree",MyController,tree);
+			addRoute("GET","/chart",MyController,chart);
+			addRoute("GET","/piechart",MyController,piechart);
+			addRoute("GET","/scatterchart",MyController,scatterchart);
 		}
 };
 int main(int argc,char** argv){

@@ -8,6 +8,7 @@ LIBS=\
 SRC=./src/a.cpp
 BIN=./bin/a
 $(BIN):$(SRC)
+	mkdir -p $(@D)
 	$(CXX)\
 		$(CXXFLAGS)\
 		$(SRC)\
