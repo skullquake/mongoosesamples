@@ -6,6 +6,7 @@ CFLAGS=\
 LIBS=\
        `pkg-config --libs mongoose`
 $(BIN):$(SRC)
+	mkdir -p $(@D)
 	$(CC)\
 		$(CFLAGS)\
 		$(SRC)\
