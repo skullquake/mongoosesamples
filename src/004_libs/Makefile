@@ -29,11 +29,7 @@ LIBSLNS=$(foreach D,$(LIBFOLDERS),-l$D_static)
 	#static order important
 	#-----------------------------------------------------------------------
 LIBSRP=$(foreach D,$(LIBFOLDERS),-Wl,-rpath=./lib/$D/lib)
-	#mingw breaks...
 LIBSLND=$(foreach D,$(LIBFOLDERS),-l$D)
-	#..manual
-#LIBSLND=\
-#	-lsrv
 LIBSLND=$(foreach D,$(LIBFOLDERS),-l$D)
 LIBSCF=$(foreach D,$(LIBFOLDERS),-I./lib/$D/include/)
 LIBSS=$(foreach D,$(LIBFOLDERS),./lib/$D/lib/lib$D_static.a)
