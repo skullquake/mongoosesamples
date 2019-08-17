@@ -9,11 +9,15 @@ SLIBOBJS:=$(addprefix $(SBUILDDIR)/,$(SOURCES:%.cpp=%.o))
 ifeq ($(PREFIX),)
     PREFIX := /usr/local
 endif
+#	-Wall
+#	-Werror
 CXXFLAGS=\
-	-Wall\
-	-Werror\
-	-I./include
-LDFLAGS=
+	-I./include\
+	-I../cpputils/include
+LDFLAGSD=\
+	-L../cpputils/lib
+LDFLAGSS=\
+	-L../cpputils/lib
 DYBIN=./bin/a_shared
 RPATH=./lib
 SBIN=./bin/a_static
@@ -30,15 +34,27 @@ SLIB=./lib/lib$(BASENAME)_static.a
 all:\
 	$(DYLIB)\
 	$(SLIB)
+ifneq (,$(findstring mingw,$(MACHINE)))
 $(DYLIB): $(DYLIBOBJS)
-	echo $(BASENAME)
+	@mkdir -p $(@D)
+	@printf "generating $@...\n"
+	@$(CXX)\
+		$(CXXFLAGS)\
+		-shared\
+		$(LDFLAGSD)\
+		$(DYLIBOBJS)\
+		-o $(DYLIB)
+else
+$(DYLIB): $(DYLIBOBJS)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
 	@$(CXX)\
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
+		$(LDFLAGSD)\
 		-o $(DYLIB)
+endif
 $(SLIB): $(SLIBOBJS)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
@@ -51,21 +67,21 @@ $(DYBUILDDIR)/%.o: %.cpp
 	@mkdir -p $(@D)
 	@$(CXX)\
 		$(CXXFLAGS)\
-		$(LDFLAGS)\
 		-fpic\
 		-I$(HEADERDIR)\
 		-I$(dir $<)\
 		-c $<\
+		$(LDFLAGSD)\
 		-o $@
 $(SBUILDDIR)/%.o: %.cpp
 	@printf "generating $@...\n"
 	@mkdir -p $(@D)
 	@$(CXX)\
 		$(CXXFLAGS)\
-		$(LDFLAGS)\
 		-I$(HEADERDIR)\
 		-I$(dir $<)\
 		-c $<\
+		$(LDFLAGSS)\
 		-o $@
 
 .phony:\

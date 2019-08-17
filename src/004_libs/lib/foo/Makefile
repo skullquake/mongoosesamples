@@ -36,7 +36,6 @@ all:\
 	$(SLIB)
 ifneq (,$(findstring mingw,$(MACHINE)))
 $(DYLIB): $(DYLIBOBJS)
-	echo $(BASENAME)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
 	@$(CXX)\
@@ -47,7 +46,6 @@ $(DYLIB): $(DYLIBOBJS)
 		-o $(DYLIB)
 else
 $(DYLIB): $(DYLIBOBJS)
-	echo $(BASENAME)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
 	@$(CXX)\
