@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			json
+		</title>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css"> 
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/tundra/tundra.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/font-awesome.css">
+		<link rel="stylesheet" href="/css/themes/blue.css">
+		<script
+			data-dojo-config="
+			async:1,
+			dojoBlankHtmlUrl:'/blank.html',
+			gfxRenderer:'svg,silverlight,vml',
+			packages:[
+				{
+					name: 'custom',
+					location:location.pathname.replace(/\/[^/]+$/,'')+'/js/custom'
+				},
+				{
+					name:'bootstrap',
+					location:'/lib/Dojo-Bootstrap'
+				}
+			]"
+			src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+		>
+            </script>
+    
+
+		</script>
+	</head>
+	<body>
+	<body style="margin-top: 128px;">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="">
+					<a class="brand" href="/"> 
+						<img src="/img/brandlogo.png" style="margin-top: -10px; height: 40px;">
+					</a>
+					<ul class="nav"></ul>
+				</div>
+			</div>
+			<header class="jumbotron" style="padding:8px!important;text-align:left;">
+				<div class="row">
+					<div class="span6">
+						<h3 style="margin:0px;">mongoose-cpp</h3>
+					</div>
+					<div class="span6">
+						<h5 style="text-align:right;">JsonCPP-Dojo Test</h5>
+					</div>
+				</div>
+			</header>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<div class="panel">
+					<div class="panel-heading">
+						Tree
+						<btn id="expand-button" style="margin-top:-5px;" class="btn btn-inverse pull-right">Toggle</btn>
+					</div>
+					<div class="panel-body" style="height: 307px !important;overflow: hidden;">
+						<div id="example"></div>
+
+					</div>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="panel">
+					<div class="panel-heading">
+						Pie Chart
+					</div>
+					<div class="panel-body">
+						<div id="piechart"></div>
+					</div>
+				</div>
+			</div>
+			<div class="span10">
+				<div class="panel">
+					<div class="panel-heading">
+						Scatter Chart
+					</div>
+					<div class="panel-body">
+						<div id="scatterchart"></div>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-heading">
+						Animated Chart
+					</div>
+					<div class="panel-body">
+						<div id="chartanim"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script>
+			//--------------------------------------------------------------------------------
+			//tree
+			//--------------------------------------------------------------------------------
+			require(
+				[
+					"dojo/data/ItemFileReadStore",
+					"dijit/tree/ForestStoreModel",
+					"dijit/tree/ObjectStoreModel",
+					"dijit/Tree",
+					"dojo/parser",
+					"dojo/query",
+					"dojo/dom",
+					"dojo/request",
+					"dojo/json",
+					"dojo/_base/array",
+					"dojo/domReady!"
+				],
+				function(
+					ItemFileReadStore,
+					ForestStoreModel,
+					ObjectStoreModel,
+					Tree,
+					parser,
+					query,
+					dom,
+					request,
+					json,
+					array,
+					ready
+				){      
+					request.get(
+						"/tree?depth=2",
+						{
+							handleAs:"json"
+						}
+					).then(
+						function(sdat){
+							var stor=new ItemFileReadStore(
+							    {
+								//mayHaveChildren:true,
+								data: sdat
+							    }
+							);
+							var fsm=new ForestStoreModel(
+							    {
+								store:stor,
+								query:{
+								    //type:'continent'
+								},
+								rootId:0,
+								rootLabel:'root'
+							    }
+							);
+							var tree=new Tree(
+							    {
+								model:fsm,
+								showRoot:true,
+								autoExpand:false,
+								openOnClick: true
+							    }
+							);
+							tree.placeAt(dojo.query('#example')[0]);
+							var _=true;
+							query("#expand-button").on(
+								"click",
+								dojo.hitch(
+									function(e){
+										_?tree.expandAll():tree.collapseAll();
+										_=!_;
+										//console.log(tree);
+										//tree.expandAll()
+									}
+								)
+							);
+
+						}
+					);
+				}
+			);
+			//--------------------------------------------------------------------------------
+			//pie chart
+			//--------------------------------------------------------------------------------
+			require(
+				[
+					"dojo/request",
+					"dojox/charting/Chart",
+					"dojox/charting/themes/Claro",
+					"dojox/charting/plot2d/Pie",
+					"dojo/domReady!"
+				],
+				function(
+					request,
+					Chart,
+					theme,
+					PiePlot,
+					ready
+				){      
+					request.get(
+						"/piechart",
+						{
+							handleAs:"json"
+						}
+					).then(
+						function(chartData){
+							var pieChart=new Chart(dojo.query("#piechart")[0]);
+							pieChart.setTheme(theme);
+							pieChart.addPlot(
+								"default",
+								{
+									type: PiePlot,
+									radius: 200,
+									fontColor: "black",
+									labelOffset: -20
+								}
+							);
+							pieChart.addSeries("January",chartData);
+							pieChart.render();
+						}
+					);
+								
+				}
+			);
+			//--------------------------------------------------------------------------------
+			//scatter chart
+			//--------------------------------------------------------------------------------
+			require(
+				[
+					"dojo/request",
+					"dojox/charting/Chart",
+					"dojox/charting/axis2d/Default",
+					"dojox/charting/plot2d/Scatter",
+					"dojox/charting/themes/Julie",
+					"dojo/ready"
+				],
+				function(
+					request,
+					Chart,
+					Default,
+					Scatter,
+					Julie,
+					ready
+				){
+					request.get(
+						"/scatterchart?nval=96",
+						{
+							handleAs:"json"
+						}
+					).then(
+						function(chartData){
+							var c = new Chart(dojo.query("#scatterchart")[0]);
+							c.addPlot("default", {type: Scatter})
+							.addAxis("x", {fixLower: "major", fixUpper: "major"})
+							.addAxis("y", {vertical: true, fixLower: "major", fixUpper: "major", min: 0})
+							.setTheme(Julie)
+							Object.keys(chartData).forEach(
+								dojo.hitch(
+									this,
+									function(k){
+										c.addSeries(k,chartData[k]);
+									}
+								)
+							);
+							c.render();
+						}
+					);
+				}
+			);
+			//--------------------------------------------------------------------------------
+			//anim chart
+			//--------------------------------------------------------------------------------
+			require(
+				[
+					"dojo/request",
+					"dojox/charting/Chart",
+					"dojox/charting/axis2d/Default",
+					"dojox/charting/plot2d/ClusteredColumns",
+					"dojo/fx/easing",
+					"dojox/charting/themes/Tufte",
+					"dojo/ready"
+				],
+				function(
+					request,
+					Chart,
+					Default,
+					ClusteredColumns,
+					easing,
+					Tufte,
+					ready
+				){
+					request.get(
+						"/scatterchart?nval=3",
+						{
+							handleAs:"json"
+						}
+					).then(
+						function(chartData){
+							var c= new Chart(dojo.query("#chartanim")[0]);
+							c.setTheme(Tufte).
+							addAxis("x",{fixLower:"minor",fixUpper:"minor",natural:true}).
+							addAxis("y",{vertical:true,fixLower:"major",fixUpper:"major",includeZero:true}).
+							addPlot(
+								"default",{
+									type:ClusteredColumns,
+									gap:10,
+									animate:{
+										duration:2000,
+										easing:easing.bounceInOut
+									}
+								}
+							);
+							Object.keys(chartData).forEach(
+								dojo.hitch(
+									this,
+									function(k){
+										c.addSeries(k,chartData[k]);
+									}
+								)
+							);
+
+							//addSeries("Series A", [ 2, 1, 0.5, -1, -2 ] ).
+							//addSeries("Series B", [ -2, -1, -0.5, 1, 2 ] ).
+							//addSeries("Series C", [ 1, 0.5, -1, -2, -3 ] ).
+							//addSeries("Series D", [ 0.7, 1.5, -1.2, -1.25, 3 ] ).
+							c.render();
+
+						}
+					);
+				}
+			);
+			//--------------------------------------------------------------------------------
+			//3d chart
+			//--------------------------------------------------------------------------------
+/*
+			require(
+				[
+					"dojox/charting/Chart3D",
+					"dojox/charting/plot3d/Bars",
+					"dojox/gfx3d/matrix",
+					"dojo/domReady!"
+				],
+				function(
+					Chart3D,
+					Bars,
+					m,
+					ready
+				){
+					var chart3d = new Chart3D(
+						dojo.query("#chart3d")[0],
+					    {
+						lights:   [{direction: {x: 5, y: 5, z: -5}, color: "white"}],
+						ambient:  {color:"white", intensity: 2},
+						specular: "white"
+					    },
+					    [m.cameraRotateXg(10), m.cameraRotateYg(-10), m.scale(0.8), m.cameraTranslate(-50, -50, 0)]
+					);
+					var bars3d_a = new Bars(500, 500, {gap: 10, material: "yellow"});
+					bars3d_a.setData([1, 2, 3, 2, 1, 2, 3, 4, 5]);
+					chart3d.addPlot(bars3d_a);
+					var bars3d_b = new Bars(500, 500, {gap: 10, material: "red"});
+					bars3d_b.setData([2, 3, 4, 3, 2, 3, 4, 5, 5]);
+					chart3d.addPlot(bars3d_b);
+					var bars3d_c = new Bars(500, 500, {gap: 10, material: "blue"});
+					bars3d_c.setData([3, 4, 5, 4, 3, 4, 5, 5, 5]);
+					chart3d.addPlot(bars3d_c);
+					chart3d.generate().render();
+				}
+			);
+*/
+	</script>
+	</body>
+</html>
+        
+    
+    
+
