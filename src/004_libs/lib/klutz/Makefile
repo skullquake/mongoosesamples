@@ -34,6 +34,18 @@ SLIB=./lib/lib$(BASENAME)_static.a
 all:\
 	$(DYLIB)\
 	$(SLIB)
+ifneq (,$(findstring mingw,$(MACHINE)))
+$(DYLIB): $(DYLIBOBJS)
+	echo $(BASENAME)
+	@mkdir -p $(@D)
+	@printf "generating $@...\n"
+	@$(CXX)\
+		$(CXXFLAGS)\
+		-shared\
+		$(LDFLAGSD)\
+		$(DYLIBOBJS)\
+		-o $(DYLIB)
+else
 $(DYLIB): $(DYLIBOBJS)
 	echo $(BASENAME)
 	@mkdir -p $(@D)
@@ -42,8 +54,9 @@ $(DYLIB): $(DYLIBOBJS)
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
+		$(LDFLAGSD)\
 		-o $(DYLIB)
-#		$(LDFLAGSD)
+endif
 $(SLIB): $(SLIBOBJS)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
