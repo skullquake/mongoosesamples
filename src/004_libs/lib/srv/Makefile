@@ -68,9 +68,9 @@ $(DYLIB): $(DYLIBOBJS)
 	@$(CXX)\
 		$(CXXFLAGS)\
 		-shared\
+		$(LDFLAGSD)\
 		$(DYLIBOBJS)\
 		-o $(DYLIB)
-#		$(LDFLAGSD)
 $(SLIB): $(SLIBOBJS)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
@@ -87,8 +87,8 @@ $(DYBUILDDIR)/%.o: %.cpp
 		-I$(HEADERDIR)\
 		-I$(dir $<)\
 		-c $<\
-		$(LDFLAGSD)\
 		-o $@
+#		$(LDFLAGSD)
 $(SBUILDDIR)/%.o: %.cpp
 	@printf "generating $@...\n"
 	@mkdir -p $(@D)
