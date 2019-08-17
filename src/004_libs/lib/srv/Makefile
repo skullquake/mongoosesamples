@@ -43,7 +43,8 @@ LDFLAGSS=\
 	-L../baz/lib\
 	-L../qux/lib\
 	-L../qux/lib\
-	`pkg-config --libs mongoosecpp`
+	`pkg-config --libs mongoosecpp`\
+	`pkg-config --libs jsoncpp`
 
 DYBIN=./bin/a_shared
 RPATH=./lib
@@ -62,15 +63,14 @@ all:\
 	$(DYLIB)\
 	$(SLIB)
 $(DYLIB): $(DYLIBOBJS)
-	echo $(BASENAME)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
 	@$(CXX)\
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
+		$(LDFLAGSD)\
 		-o $(DYLIB)
-#		$(LDFLAGSD)
 $(SLIB): $(SLIBOBJS)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"

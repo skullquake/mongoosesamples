@@ -28,14 +28,6 @@ LIBSLNS=$(foreach D,$(LIBFOLDERS),-l$D_static)
 	#-----------------------------------------------------------------------
 	#static order important
 	#-----------------------------------------------------------------------
-LIBSLNS=\
-	-lsrv_static\
-	-lcpputils_static\
-	-lfoo_static\
-	-lbar_static\
-	-lbaz_static\
-	-lqux_static\
-	-lklutz_static
 LIBSRP=$(foreach D,$(LIBFOLDERS),-Wl,-rpath=./lib/$D/lib)
 
 LIBSLND=$(foreach D,$(LIBFOLDERS),-l$D)
@@ -56,21 +48,26 @@ CXXFLAGS=\
 #compilation
 #-------------------------------------------------------------------------------
 CXX=g++
-LDFLAGS=\
-	`pkg-config --libs mongoosecpp`\
-	`pkg-config --libs jsoncpp`
 	#-----------------------------------------------------------------------
 	#static
 	#-----------------------------------------------------------------------
 LDFLAGSS=\
-	$(LDFLAGS)\
-	$(LIBSLNS)
+	-lsrv_static\
+	-lcpputils_static\
+	`pkg-config --libs mongoosecpp`\
+	`pkg-config --libs jsoncpp`\
+	-lfoo_static\
+	-lbar_static\
+	-lbaz_static\
+	-lqux_static\
+	-lklutz_static
 BINS=./bin/$(BASENAME)_static
 	#-----------------------------------------------------------------------
 	#shared
 	#-----------------------------------------------------------------------
 LDFLAGSD=\
-	$(LDFLAGS)\
+	`pkg-config --libs mongoosecpp`\
+	`pkg-config --libs jsoncpp`\
 	$(LIBSLND)
 $(foreach D,$(LIBFOLDERS),$(eval P := $(P)./lib/$(D)/lib:))
 BIND=./bin/$(BASENAME)_shared
