@@ -47,7 +47,7 @@ LDFLAGSS=\
 	`pkg-config --libs jsoncpp`
 
 DYBIN=./bin/a_shared
-RPATH=./lib
+RPATH=
 SBIN=./bin/a_static
 BASENAME=$(shell basename `pwd`)
 MACHINE=$(shell $(CXX) -dumpmachine)
@@ -71,6 +71,7 @@ $(DYLIB): $(DYLIBOBJS)
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
+		$(RPATH)\
 		$(LDFLAGSD)\
 		-o $(DYLIB)
 else
@@ -80,8 +81,8 @@ $(DYLIB): $(DYLIBOBJS)
 	@$(CXX)\
 		$(CXXFLAGS)\
 		-shared\
-		$(LDFLAGSD)\
 		$(DYLIBOBJS)\
+		$(RPATH)\
 		-o $(DYLIB)
 endif
 $(SLIB): $(SLIBOBJS)
