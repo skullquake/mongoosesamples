@@ -69,8 +69,8 @@ $(DYLIB): $(DYLIBOBJS)
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
-		$(LDFLAGSD)\
 		-o $(DYLIB)
+#		$(LDFLAGSD)
 $(SLIB): $(SLIBOBJS)
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
