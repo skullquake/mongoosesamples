@@ -17,12 +17,14 @@
 namespace ctl{
 	using namespace std;
 	using namespace Mongoose;
-	class MyController:public WebController{
+	class Ctl:public WebController{
 		public: 
 			void tree(Request &request, StreamResponse &response);
 			void chart(Request &request, StreamResponse &response);
 			void piechart(Request &request, StreamResponse &response);
 			void scatterchart(Request &request, StreamResponse &response);
+			void rnd(Request &request, StreamResponse &response);
+			void html(Request &request, StreamResponse &response);
 			void setup();
 	};
 }

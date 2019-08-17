@@ -13,6 +13,7 @@ endif
 #	-Werror
 CXXFLAGS=\
 	-I./include\
+	-I./include/HTML\
 	-I../cpputils/include\
 	-I../foo/include\
 	-I../bar/include\
@@ -41,7 +42,8 @@ LDFLAGSS=\
 	-L../bar/lib\
 	-L../baz/lib\
 	-L../qux/lib\
-	`pkg-config --libs mongoosecpp`\
+	-L../qux/lib\
+	`pkg-config --libs mongoosecpp`
 
 DYBIN=./bin/a_shared
 RPATH=./lib

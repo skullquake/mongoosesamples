@@ -30,12 +30,12 @@ LIBSLNS=$(foreach D,$(LIBFOLDERS),-l$D_static)
 	#-----------------------------------------------------------------------
 LIBSLNS=\
 	-lsrv_static\
+	-lcpputils_static\
 	-lfoo_static\
 	-lbar_static\
 	-lbaz_static\
 	-lqux_static\
-	-lklutz_static\
-	-lcpputils_static
+	-lklutz_static
 LIBSRP=$(foreach D,$(LIBFOLDERS),-Wl,-rpath=./lib/$D/lib)
 
 LIBSLND=$(foreach D,$(LIBFOLDERS),-l$D)

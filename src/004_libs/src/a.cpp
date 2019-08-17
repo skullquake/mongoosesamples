@@ -6,12 +6,12 @@
 #include<string>
 #include<iostream>
 #include<json/json.h>
-//#include"MyController/MyController.h"
+//#include"Ctl/Ctl.h"
 #include"ctl/ctl.h"
 using namespace std;
 using namespace Mongoose;
 int main(int argc,char** argv){
-	ctl::MyController myController;
+	ctl::Ctl myController;
 	Server server(8080);
 	server.registerController(&myController);
 	server.setOption("enable_directory_listing","yes");
