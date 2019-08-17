@@ -70,7 +70,6 @@ $(DYLIB): $(DYLIBOBJS)
 		-shared\
 		$(LDFLAGSD)\
 		$(DYLIBOBJS)\
-		$(LDFLAGSD)\
 		-o $(DYLIB)
 $(SLIB): $(SLIBOBJS)
 	@mkdir -p $(@D)
