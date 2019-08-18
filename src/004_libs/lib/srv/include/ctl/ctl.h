@@ -9,11 +9,6 @@
 #include<iostream>
 #include<json/json.h>
 #include"uuid/uuid.h"
-#include"foo.h"
-#include"bar.h"
-#include"baz.h"
-#include"qux.h"
-#include"klutz.h"
 namespace ctl{
 	using namespace std;
 	using namespace Mongoose;

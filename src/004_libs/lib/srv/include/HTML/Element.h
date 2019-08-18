@@ -726,6 +726,21 @@ class Header3 : public Element {
 public:
     explicit Header3(const std::string& aContent) : Element("h3", aContent) {}
 };
+/// \<h4\> Element
+class Header4 : public Element {
+public:
+    explicit Header4(const std::string& aContent) : Element("h4", aContent) {}
+};
+/// \<h5\> Element
+class Header5 : public Element {
+public:
+    explicit Header5(const std::string& aContent) : Element("h5", aContent) {}
+};
+/// \<h6\> Element
+class Header6 : public Element {
+public:
+    explicit Header6(const std::string& aContent) : Element("h6", aContent) {}
+};
 
 /// \<b\> bold Element
 class Bold : public Element {

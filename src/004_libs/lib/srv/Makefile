@@ -12,37 +12,19 @@ endif
 #	-Wall
 #	-Werror
 CXXFLAGS=\
+	-std=c++0x\
 	-I./include\
 	-I./include/HTML\
 	-I../cpputils/include\
-	-I../foo/include\
-	-I../bar/include\
-	-I../baz/include\
-	-I../qux/include\
-	-I../klutz/include\
 	`pkg-config --cflags mongoosecpp`\
 	`pkg-config --cflags jsoncpp`
 LDFLAGSD=\
 	-L../cpputils/lib\
-	-L../foo/lib\
-	-L../bar/lib\
-	-L../baz/lib\
-	-L../qux/lib\
-	-L../klutz/lib\
 	`pkg-config --libs mongoosecpp`\
 	`pkg-config --libs jsoncpp`\
-	-lcpputils\
-	-lfoo\
-	-lbar\
-	-lbaz\
-	-lqux
+	-lcpputils
 LDFLAGSS=\
 	-L../cpputils/lib\
-	-L../foo/lib\
-	-L../bar/lib\
-	-L../baz/lib\
-	-L../qux/lib\
-	-L../qux/lib\
 	`pkg-config --libs mongoosecpp`\
 	`pkg-config --libs jsoncpp`
 
