@@ -95,6 +95,9 @@ $(BINS): $(OBJECTS) $(LIBSS)
 		$(OBJECTS)\
 		$(LDFLAGSS)\
 		-o $(BINS)
+#		-static
+#		-static-libgcc
+#		-static-libstdc++
 $(BIND): $(OBJECTS) $(LIBSD) 
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"

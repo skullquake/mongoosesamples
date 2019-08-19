@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			json
+		</title>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css"> 
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/tundra/tundra.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/font-awesome.css">
+		<link rel="stylesheet" href="/css/themes/blue.css">
+		<script
+			data-dojo-config="
+			async:1,
+			dojoBlankHtmlUrl:'/blank.html',
+			gfxRenderer:'svg,silverlight,vml',
+			packages:[
+				{
+					name: 'custom',
+					location:location.pathname.replace(/\/[^/]+$/,'')+'/js/custom'
+				},
+				{
+					name:'bootstrap',
+					location:'/lib/Dojo-Bootstrap'
+				}
+			]"
+			src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+		>
+		</script>
+		<script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+	<body style="margin-top: 128px;">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="">
+					<a class="brand" href="/"> 
+						<img src="/img/brandlogo.png" style="margin-top: -10px; height: 40px;">
+					</a>
+					<ul class="nav"></ul>
+				</div>
+			</div>
+			<header class="jumbotron" style="padding:8px!important;text-align:left;">
+				<div class="row">
+					<div class="span6">
+						<h3 style="margin:0px;">mongoose-cpp</h3>
+					</div>
+				</div>
+			</header>
+		<div class="row">
+			<div class="span11">
+				<div class="panel">
+					<div class="panel-heading">
+						Code
+					</div>
+					<div class="panel-body" style="">
+						<pre class="code" id="code">var settings={
+	"async":true,
+	"crossDomain":true,
+	"url":"http://apizadmz.capfin.co.za/oauth2/api/oauth2/token",
+	"method":"POST",
+	"headers":{
+		"content-type":"application/x-www-form-urlencoded",
+		"authorization": "Basic c3dhcm06b2F1dGgyLXN3YXJtLXNlY3JldA=="
+	},
+	"data":{
+		"Grant_Type": "client_credentials"
+	}
+};
+$.ajax(settings).done(
+	function(response){
+		$("#response").text(
+			JSON.stringify(
+				response,
+				0,
+				"\t"
+			)
+		);
+	}
+);</pre>
+					</div>
+				</div>
+			</div>
+			<div class="span8">
+				<div class="panel">
+					<div class="panel-heading">
+						Response
+					</div>
+					<div class="panel-body" style="">
+						<pre class="code" id="response"></pre>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	<script>
+		$(document).ready(
+			function(){
+				var settings={
+					"async":true,
+					"crossDomain":true,
+					"url":"http://apizadmz.capfin.co.za/oauth2/api/oauth2/token",
+					"method":"POST",
+					"headers":{
+						"content-type":"application/x-www-form-urlencoded",
+						"authorization": "Basic c3dhcm06b2F1dGgyLXN3YXJtLXNlY3JldA=="
+					},
+					"data":{
+						"Grant_Type": "client_credentials"
+					}
+				};
+				$.ajax(settings).done(
+					function(response){
+						$("#response").text(
+							JSON.stringify(
+								response,
+								0,
+								"\t"
+							)
+						);
+					}
+				);
+			}
+		);
+	</script>
+	</body>
+</html>
+        
+    
+    
+

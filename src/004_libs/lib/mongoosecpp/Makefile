@@ -43,13 +43,13 @@ else
 endif
 DYLIB=./lib/lib$(BASENAME).$(SOEXT)
 SLIB=./lib/lib$(BASENAME)_static.a
+all:\
+	$(DYLIB)\
+	$(SLIB)
 slib:\
 	$(SLIB)
 dylib:\
 	$(DYLIB)
-all:\
-	$(DYLIB)\
-	$(SLIB)
 ifneq (,$(findstring mingw,$(MACHINE)))
 $(DYLIB): $(DYLIBOBJS)
 	@mkdir -p $(@D)

@@ -133,8 +133,8 @@ $(SBUILDDIR)/%.o: %.cpp $(DEPLIBSS)
 	runstatic\
 	clean\
 	install\
-	distclean\
-	test
+	printdeps\
+	distclean
 install: $(DYLIB) $(SLIB)
 	install -d $(DESTDIR)$(PREFIX)/lib/
 	install -m 644 $(DYLIB) $(DESTDIR)$(PREFIX)/lib/
@@ -150,7 +150,7 @@ distclean:
 		-r\
 		$(DYBUILDDIR)\
 		$(SBUILDDIR)
-test:
+printdeps:
 	@echo DEPLIBS
 	@echo $(DEPLIBS)
 	@echo DEPLIBFOLDERS
@@ -173,11 +173,21 @@ test:
 	@echo $(LDFLAGSS)
 	@echo LDFLAGSD
 	@echo $(LDFLAGSD)
-
+#-------------------------------------------------------------------------------
+#
+# >>command script context<< : possible solution to optimal dep lib building
+#
+# Wildcards are automatically expanded bymakewhenever a wildcard appears in a
+# target, prerequisite, or >>command script context<<. In other contexts,
+# wildcards can beexpanded explicitly by calling a function. Wildcards can be
+# very useful for creatingmore adaptablemakefiles. For instance, instead of
+# listing all the files in a programexplicitly, you can use wildcards
+#
+#-------------------------------------------------------------------------------
 #$(DEPLIBFOLDERS)%.dll:
 $(DEPLIBSS):
-	make -C $(shell dirname $(@D)) dylib
+	make -C $(shell dirname $(@D)) slib
 #$(DEPLIBFOLDERS)%_static.a:
 $(DEPLIBSD):
-	make -C $(shell dirname $(@D)) slib
+	make -C $(shell dirname $(@D)) dylib
 
