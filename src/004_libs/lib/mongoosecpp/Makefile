@@ -1,55 +1,51 @@
+BASENAME=$(shell basename `pwd`)
+MACHINE=$(shell $(CXX) -dumpmachine)
+CC=gcc
 CXX=g++
 AR=ar
 SOURCEDIR=./src
-SOURCES:=$(shell find $(SOURCEDIR) -name '*.cpp')
+SOURCES:=$(shell find $(SOURCEDIR) -name "*.cpp" -o -name "*.c" )
 DYBUILDDIR=bin/shared
 SBUILDDIR=bin/static
-DYLIBOBJS:=$(addprefix $(DYBUILDDIR)/,$(SOURCES:%.cpp=%.o))
-SLIBOBJS:=$(addprefix $(SBUILDDIR)/,$(SOURCES:%.cpp=%.o))
+DYLIBOBJS:=\
+	$(addprefix $(DYBUILDDIR)/,$(patsubst %.c,%.o ,$(patsubst %.cpp,%.o,$(SOURCES))))
+SLIBOBJS=\
+	$(addprefix $(SBUILDDIR)/,$(patsubst %.c,%.o ,$(patsubst %.cpp,%.o,$(SOURCES))))
 ifeq ($(PREFIX),)
     PREFIX := /usr/local
 endif
-#	-Wall
-#	-Werror
 CXXFLAGS=\
-	-std=c++0x\
 	-I./include\
-	-I./include/HTML\
-	-I../cpputils/include\
-	-I../mongoosecpp/include\
-	`pkg-config --cflags jsoncpp`\
-	`pkg-config --cflags cairo`
+	`pkg-config --cflags jsoncpp`
 LDFLAGSD=\
-	-L../cpputils/lib\
-	-L../mongoosecpp/lib\
-	`pkg-config --libs jsoncpp`\
-	`pkg-config --libs cairo`\
-	-lmongoosecpp\
-	-lcpputils
+	`pkg-config --libs jsoncpp`
+ifneq (,$(findstring mingw,$(MACHINE)))
+	LDFLAGSD+=\
+		-ldl\
+		-lws2_32\
+		-lstdc++
+endif
 LDFLAGSS=\
-	-L../cpputils/lib\
-	-L../mongoosecpp/lib\
-	`pkg-config --libs jsoncpp`\
-	`pkg-config --libs cairo`\
-	-lcpputilsstatic
-
+	`pkg-config --libs jsoncpp`
+ifneq (,$(findstring mingw,$(MACHINE)))
+	LDFLAGSS+=\
+		-ldl\
+		-lws2_32\
+		-lstdc++
+endif
 DYBIN=./bin/a_shared
-RPATH=
+RPATH=./lib
 SBIN=./bin/a_static
-BASENAME=$(shell basename `pwd`)
-MACHINE=$(shell $(CXX) -dumpmachine)
 ifneq (,$(findstring mingw,$(MACHINE)))
 	SOEXT="dll"
 else
 	SOEXT="so"
 endif
-
 DYLIB=./lib/lib$(BASENAME).$(SOEXT)
 SLIB=./lib/lib$(BASENAME)_static.a
 all:\
 	$(DYLIB)\
 	$(SLIB)
-MACHINE=$(shell $(CXX) -dumpmachine)
 ifneq (,$(findstring mingw,$(MACHINE)))
 $(DYLIB): $(DYLIBOBJS)
 	@mkdir -p $(@D)
@@ -58,7 +54,6 @@ $(DYLIB): $(DYLIBOBJS)
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
-		$(RPATH)\
 		$(LDFLAGSD)\
 		-o $(DYLIB)
 else
@@ -69,7 +64,7 @@ $(DYLIB): $(DYLIBOBJS)
 		$(CXXFLAGS)\
 		-shared\
 		$(DYLIBOBJS)\
-		$(RPATH)\
+		$(LDFLAGSD)\
 		-o $(DYLIB)
 endif
 $(SLIB): $(SLIBOBJS)
@@ -88,12 +83,33 @@ $(DYBUILDDIR)/%.o: %.cpp
 		-I$(HEADERDIR)\
 		-I$(dir $<)\
 		-c $<\
+		$(LDFLAGSD)\
 		-o $@
-#		$(LDFLAGSD)
+$(DYBUILDDIR)/%.o: %.c
+	@printf "generating $@...\n"
+	@mkdir -p $(@D)
+	@$(CC)\
+		$(CXXFLAGS)\
+		-fpic\
+		-I$(HEADERDIR)\
+		-I$(dir $<)\
+		-c $<\
+		$(LDFLAGSD)\
+		-o $@
 $(SBUILDDIR)/%.o: %.cpp
 	@printf "generating $@...\n"
 	@mkdir -p $(@D)
 	@$(CXX)\
+		$(CXXFLAGS)\
+		-I$(HEADERDIR)\
+		-I$(dir $<)\
+		-c $<\
+		$(LDFLAGSS)\
+		-o $@
+$(SBUILDDIR)/%.o: %.c
+	@printf "generating $@...\n"
+	@mkdir -p $(@D)
+	@$(CC)\
 		$(CXXFLAGS)\
 		-I$(HEADERDIR)\
 		-I$(dir $<)\
@@ -106,7 +122,15 @@ $(SBUILDDIR)/%.o: %.cpp
 	runstatic\
 	clean\
 	install\
-	distclean
+	distclean\
+	test
+test:
+	@echo SOURCES:
+	@echo $(SOURCES)|sed "s/\ /\n/g"
+	@echo SLIBOBJS:
+	@echo $(SLIBOBJS)|sed "s/\ /\n/g"
+	@echo DYLIBOBJS:
+	@echo $(DYLIBOBJS)|sed "s/\ /\n/g"
 install: $(DYLIB) $(SLIB)
 	install -d $(DESTDIR)$(PREFIX)/lib/
 	install -m 644 $(DYLIB) $(DESTDIR)$(PREFIX)/lib/

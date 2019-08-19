@@ -42,8 +42,8 @@ CXXFLAGS=\
 	-I./include\
 	$(LIBSCF)\
 	$(LIBSL)\
-	`pkg-config --cflags mongoosecpp`\
-	`pkg-config --cflags jsoncpp`
+	`pkg-config --cflags jsoncpp`\
+	`pkg-config --cflags cairo`
 #-------------------------------------------------------------------------------
 #compilation
 #-------------------------------------------------------------------------------
@@ -54,20 +54,32 @@ CXX=g++
 LDFLAGSS=\
 	-lsrv_static\
 	-lcpputils_static\
-	`pkg-config --libs mongoosecpp`\
 	`pkg-config --libs jsoncpp`\
+	`pkg-config --libs cairo`\
+	-lmongoosecpp_static\
 	-lfoo_static\
 	-lbar_static\
 	-lbaz_static\
 	-lqux_static\
 	-lklutz_static
+ifneq (,$(findstring mingw,$(MACHINE)))
+	LDFLAGSS+=\
+		  -ldl\
+		  -lws2_32
+endif
 BINS=./bin/$(BASENAME)_static
 	#-----------------------------------------------------------------------
 	#shared
 	#-----------------------------------------------------------------------
 LDFLAGSD=\
-	`pkg-config --libs mongoosecpp`\
 	`pkg-config --libs jsoncpp`\
+	`pkg-config --libs cairo`
+ifneq (,$(findstring mingw,$(MACHINE)))
+	LDFLAGSD+=\
+		  -ldl\
+		  -lws2_32
+endif
+LDFLAGSD+=\
 	$(LIBSLND)
 $(foreach D,$(LIBFOLDERS),$(eval P := $(P)./lib/$(D)/lib:))
 BIND=./bin/$(BASENAME)_shared

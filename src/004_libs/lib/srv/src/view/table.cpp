@@ -9,11 +9,26 @@ std::vector<std::vector<std::string>> view::Table::getRows() const{
 void view::Table::addRow(std::vector<std::string> aVRow){
 	mVRows.push_back(aVRow);
 }
+void view::Table::setHeader(std::vector<std::string> aVHeader){
+	mVHeader=aVHeader;
+}
 HTML::Element view::Table::toHtml() const{
 	HTML::Element table("table");
 	table.cls("table table-striped");
 	table.id("id");
 	HTML::Element tbody("tbody");
+	HTML::Element thead("thead");
+	HTML::Element theadtr("tr");
+	for(
+		std::vector<std::string>::const_iterator ithdr=mVHeader.begin();
+		ithdr!=mVHeader.end();
+		ithdr++
+	){
+		HTML::Element td("th");
+		td<<(*ithdr);
+		theadtr<<std::move(td);
+	}
+	thead<<std::move(theadtr);
 	for(
 		std::vector<std::vector<std::string>>::const_iterator itrow=mVRows.begin();
 		itrow!=mVRows.end();
@@ -31,6 +46,7 @@ HTML::Element view::Table::toHtml() const{
 		}
 		tbody<<std::move(tr);
 	}
+	table<<std::move(thead);
 	table<<std::move(tbody);
 	return table;
 }

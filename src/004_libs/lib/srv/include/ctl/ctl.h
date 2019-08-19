@@ -20,6 +20,7 @@ namespace ctl{
 			void scatterchart(Request &request, StreamResponse &response);
 			void rnd(Request &request, StreamResponse &response);
 			void html(Request &request, StreamResponse &response);
+			void cairotest(Request &request, StreamResponse &response);
 			void setup();
 	};
 }

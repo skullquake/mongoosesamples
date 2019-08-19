@@ -7,6 +7,7 @@
 
 #include"uuid/uuid.h"
 #include<iostream>
+#include<fstream>
 #include<string>
 #include<cstdlib>
 #include<sstream>
@@ -22,6 +23,11 @@
 #include "HTML.h"
 #define HTML_INDENTATION 1
 #define HTML_ENDLINE "\n"
+
+
+//cairo test
+#include<cairo.h>
+#include<time.h>
 
 
 using namespace std;
@@ -158,7 +164,9 @@ void Ctl::html(Request &request,StreamResponse &response){
 	}
 	layout.getMenu()<<std::move(menu.toHtml());
 	view::Table _table;
+	std::vector<std::string> vhdr={"hdr0","hdr1","hdr2"};
 	std::vector<std::string> vdat={"foo","bar","baz"};
+	_table.setHeader(vhdr);
 	_table.addRow(vdat);
 	_table.addRow(vdat);
 	_table.addRow(vdat);
@@ -170,6 +178,38 @@ void Ctl::html(Request &request,StreamResponse &response){
 		"Belita",
 		"Ranique",
 		"Korella"
+		"Sybille",
+		"Thea",
+		"Karmen",
+		"Corine",
+		"Lauree",
+		"Viv",
+		"Elyse",
+		"Shelli",
+		"Georgeta",
+		"Iormina",
+		"Jacinta",
+		"Fara",
+		"Tobe",
+		"Sada",
+		"Idette",
+		"Sioux",
+		"Janelle",
+		"Annette",
+		"Jorie",
+		"Celestyn",
+		"Ailis",
+		"Renae",
+		"Janaya",
+		"Elicia",
+		"Sayre",
+		"Mariya",
+		"Jorey",
+		"Sabra",
+		"Tawsha",
+		"Melanie",
+		"Christye",
+		"Dawn"
 	};
 	std::vector<std::string> vsnam={
 		"Olivetti",
@@ -237,10 +277,14 @@ void Ctl::html(Request &request,StreamResponse &response){
 	page.getDocument()<<std::move(layout.getMenu());;
 	page.getDocument()<<std::move(layout.getBody());;
 	response<<page;
+	//std::string b=response.getBody();
+	//b="asdf";
+	//response.getBody()="a";
+	//std::ifstream input("Makefile");
+	//char bytes[] = {'a',0,1,2,3,'b','c'};
+	//response<<bytes;//std::istringstream( std::string( std::begin( bytes ), std::end( bytes ) ) );//bytes;//input;
 }
-
 void html2(Request &request,StreamResponse &response){
-	//view::Page p;
 	HTML::Document document("HTML");
 	document.addAttribute("lang","en");
 	document.head()<<HTML::Meta()<<HTML::Meta("viewport","width=device-width,initial-scale=1,shrink-to-fit=no");
@@ -325,94 +369,10 @@ void html2(Request &request,StreamResponse &response){
 			main<<std::move(row);
 		}
 	}
-	//----------------------------------------
 	document<<std::move(main);
 	response<<document;
-	//response<<"------------------"<<std::endl;
-	//HTML::Div _=p.getBody();
-	//p.getBody()<<"asdf";
-	//response<<p.getBody();
-	/*
-    HTML::Document document("Welcome to HTML");
-    document.addAttribute("lang","en");
-    document.head()
-	<<HTML::Meta()//Meta("utf-8")//issue
-	<<HTML::Meta("viewport","width=device-width,initial-scale=1,shrink-to-fit=no");
-    document.head()
-	<<HTML::Rel("stylesheet","https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
-	  .integrity("sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T").crossorigin("anonymous");
-    document.head()
-	<<HTML::Style(".navbar{margin-bottom:20px;}");
-    document.body().cls("bg-light");
-    HTML::List navList(false,"navbar-nav mr-auto");
-    navList
-	<<std::move(HTML::ListItem().cls("nav-item active")<<HTML::Link("Home","#").cls("nav-link"));
-    navList
-	<<std::move(HTML::ListItem().cls("nav-item")<<HTML::Link("Link","#").cls("nav-link"));
-    navList
-	<<std::move(HTML::ListItem().cls("nav-item")<<HTML::Link("Disabled","#").cls("nav-link disabled"));
-    navList<<std::move(HTML::ListItem().cls("nav-item dropdown")
-	<<HTML::Link("Dropdown","#").cls("nav-link dropdown-toggle").id("dropdown01").addAttribute("data-toggle","dropdown").addAttribute("aria-haspopup","true").addAttribute("aria-expanded","false")
-       <<(
-		HTML::Div("dropdown-menu").addAttribute("aria-labelledby","dropdown01")
-			<<HTML::Link("Action","#").cls("dropdown-item")
-			<<HTML::Link("Another","#").cls("dropdown-item")
-	   )
-    );
-    document
-	<<(HTML::Nav("navbar navbar-expand navbar-dark bg-dark")<<(HTML::Div("collapse navbar-collapse")<<std::move(navList)));
-    HTML::Div main("container");
-    main
-	<<HTML::Header1("Welcome to HTML").id("anchor_link_1");
-    main
-	<<"Text directly in the body.";
-    main
-	<<HTML::Text("Text directly in the body. ")<<HTML::Text("Text directly in the body.")<<HTML::Break()
-	<<HTML::Text("Text directly in the body.");
-    main
-	<<HTML::Paragraph("This is the way to go for a big text in a multi-line paragraph.");
-    main
-	<<HTML::Link("Google","http://google.com").cls("my_style");
-    main
-	<<(HTML::Paragraph("A paragraph. ").style("font-family:arial")
-	<<HTML::Text("Text child.")<<HTML::Break()<<HTML::Text("And more text."));
-    main
-	<<(HTML::List()
-	<<(HTML::ListItem("Text item"))
-	<<(HTML::ListItem()<<HTML::Link("Github Link","http://srombauts.github.io").title("SRombaut's Github home page"))
-	<<(
-		HTML::ListItem()<<(HTML::List()
-			<<HTML::ListItem("val1")
-			<<HTML::ListItem("val2"))
-	   )
-	);
-    main
-	<<(
-		HTML::Table().cls("table table-hover table-sm")
-			<<HTML::Caption("Table caption")
-			<<(HTML::Row()<<HTML::ColHeader("A")<<HTML::ColHeader("B"))
-			<<(HTML::Row()<<HTML::Col("Cell_11")<<HTML::Col("Cell_12"))
-			<<(HTML::Row()<<HTML::Col("Cell_21")<<HTML::Col("Cell_22"))
-			<<(HTML::Row()<<HTML::Col("")<<HTML::Col("Cell_32"))
-	   );
-    main
-	<<HTML::Small("Copyright Sebastien Rombauts @ 2017-2019");
-    main
-	<<HTML::Link().id("anchor_link_2");
-    document
-	<<std::move(main);
-    document
-	<<HTML::Script("https://code.jquery.com/jquery-3.3.1.slim.min.js")
-           .integrity("sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo").crossorigin("anonymous");
-    document
-	<<HTML::Script("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
-           .integrity("sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1").crossorigin("anonymous");
-    document
-	<<HTML::Script("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
-           .integrity("sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM").crossorigin("anonymous");
-    response<<document;
-	*/
 }
+
 void Ctl::setup(){
 	addRoute("GET","/tree",Ctl,tree);
 	addRoute("GET","/chart",Ctl,chart);
@@ -420,6 +380,7 @@ void Ctl::setup(){
 	addRoute("GET","/scatterchart",Ctl,scatterchart);
 	addRoute("GET","/rnd",Ctl,rnd);
 	addRoute("GET","/html",Ctl,html);
+	addRoute("GET","/cairo",Ctl,cairotest);
 }
 void r(Json::Value& j,std::vector<std::string> v,int i){
 	if(i<=0){
@@ -455,4 +416,67 @@ void rhtml(HTML::Element& e,int i){
 			e<<std::move(c);
 		}
 	}
+}
+
+
+
+int reqid=0;
+int total_length = 0;
+typedef struct
+{
+    unsigned char *pos;
+    unsigned char *end;
+} closure_t;
+static cairo_status_t png_to_array (void *closure, const unsigned char *data, unsigned int length){
+	closure_t *cl = (closure_t *) closure;
+	if ((cl->pos + length) > (cl->end))
+		return CAIRO_STATUS_WRITE_ERROR;
+	memcpy (cl->pos, data, length);
+	cl->pos += length;
+	total_length += length;
+	return CAIRO_STATUS_SUCCESS;
+}
+
+//static void send_file(struct mg_connection *nc){
+//static void send_file(struct mg_connection *nc){
+void Ctl::cairotest(Request &request,StreamResponse &response){
+	cairo_surface_t *surface;
+	cairo_t *cr;
+	surface=cairo_image_surface_create(CAIRO_FORMAT_ARGB32,640,480);
+	cr=cairo_create(surface);
+	cairo_set_source_rgb(cr,255,255,0);
+	cairo_select_font_face(cr,"Sans",CAIRO_FONT_SLANT_NORMAL,CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_set_font_size(cr,20.0);
+	cairo_move_to(cr,10.0,50.0);
+	char str_date[100];
+	time_t now		=time(NULL);
+	struct tm *t		=localtime(&now);
+	strftime(str_date, sizeof(str_date)-1, "%Y-%m-%d[%H:%M:%S]", t);
+	cairo_show_text(cr,str_date);
+	srand(time(0));
+	for(int i=0;i<512;i++){
+		int x=rand()%640;
+		int y=rand()%480;
+		int l=rand()%128+128;
+		cairo_move_to(cr,x,y);
+		cairo_line_to(cr,x+rand()%16-8,y+rand()%16-8);
+		//cairo_set_source_rgb(cr,rand()%255,rand()%255,rand()%255);
+		cairo_stroke(cr);
+
+	}
+	//cairo_surface_write_to_png(surface,"./out/a.png");
+	int stride = cairo_image_surface_get_stride(surface);
+	unsigned char *arr=(unsigned char *) malloc(stride);
+	closure_t cl;
+	// copy surface png to arr
+	cl.pos = arr;
+	cairo_surface_write_to_png_stream (surface,
+	(cairo_write_func_t) png_to_array,
+	&cl);
+	cairo_destroy(cr);
+	cairo_surface_destroy(surface);
+	arr;
+	total_length;
+	std::cout<<response.getBody()<<std::endl;
+	response<<"a";
 }
