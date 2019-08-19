@@ -24,11 +24,10 @@ SBIN=./bin/a_static
 BASENAME=$(shell basename `pwd`)
 MACHINE=$(shell $(CXX) -dumpmachine)
 ifneq (,$(findstring mingw,$(MACHINE)))
-	SOEXT="dll"
+	SOEXT=dll
 else
-	SOEXT="so"
+	SOEXT=so
 endif
-
 DYLIB=./lib/lib$(BASENAME).$(SOEXT)
 SLIB=./lib/lib$(BASENAME)_static.a
 all:\
@@ -93,7 +92,11 @@ $(SBUILDDIR)/%.o: %.cpp
 	runstatic\
 	clean\
 	install\
+	test\
 	distclean
+test:
+	echo $(DYLIB)\
+	echo $(SLIB)
 install: $(DYLIB) $(SLIB)
 	install -d $(DESTDIR)$(PREFIX)/lib/
 	install -m 644 $(DYLIB) $(DESTDIR)$(PREFIX)/lib/

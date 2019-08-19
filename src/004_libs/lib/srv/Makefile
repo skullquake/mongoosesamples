@@ -1,9 +1,9 @@
 BASENAME=$(shell basename `pwd`)
 MACHINE=$(shell $(CXX) -dumpmachine)
 ifneq (,$(findstring mingw,$(MACHINE)))
-	SOEXT="dll"
+	SOEXT=dll
 else
-	SOEXT="so"
+	SOEXT=so
 endif
 CXX=g++
 AR=ar

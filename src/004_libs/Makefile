@@ -78,7 +78,7 @@ endif
 $(foreach D,$(LIBFOLDERS),$(eval P := $(P)./lib/$(D)/lib:))
 BIND=./bin/$(BASENAME)_shared
 
-all: $(LIBSS) $(LIBSD) $(BINS) $(BIND)
+all: $(BINS) $(BIND)
 static: $(BINS)
 shared: $(BIND)
 
@@ -95,9 +95,6 @@ $(BINS): $(OBJECTS) $(LIBSS)
 		$(OBJECTS)\
 		$(LDFLAGSS)\
 		-o $(BINS)
-#		-static
-#		-static-libgcc
-#		-static-libstdc++
 $(BIND): $(OBJECTS) $(LIBSD) 
 	@mkdir -p $(@D)
 	@printf "generating $@...\n"
@@ -142,7 +139,6 @@ test:
 	@echo $(LIBSRP)
 	@echo $(LDFLAGSS)
 	@echo $(LDFLAGSD)
-
 clean:
 	rm -r ./bin/*
 cleanall:

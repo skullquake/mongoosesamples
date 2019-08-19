@@ -37,9 +37,9 @@ DYBIN=./bin/a_shared
 RPATH=./lib
 SBIN=./bin/a_static
 ifneq (,$(findstring mingw,$(MACHINE)))
-	SOEXT="dll"
+	SOEXT=dll
 else
-	SOEXT="so"
+	SOEXT=so
 endif
 DYLIB=./lib/lib$(BASENAME).$(SOEXT)
 SLIB=./lib/lib$(BASENAME)_static.a
