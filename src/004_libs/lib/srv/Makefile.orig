@@ -18,16 +18,19 @@ SLIBOBJS:=$(addprefix $(SBUILDDIR)/,$(SOURCES:%.cpp=%.o))
 #-------------------------------------------------------------------------------
 #todo path specification for each and name/dir extraction
 DEPLIBS=\
-	mongoosecpp\
-	cpputils
+	mongoosecpp
 DEPLIBFOLDERS=$(foreach D,$(DEPLIBS),../$D/lib/)
 DEPLIBSL=$(foreach D,$(DEPLIBFOLDERS),-L$D)
 DEPLIBSLNS=$(foreach D,$(DEPLIBS),-l$D_static)
 DEPLIBSRP=$(foreach D,$(DEPLIBFOLDERS),-Wl,-rpath=$D)
 DEPLIBSLND=$(foreach D,$(DEPLIBS),-l$D)
-DEPLIBSCF=$(foreach D,$(DEPLIBS),-I../$D/include)
+DEPLIBSCF=$(foreach D,$(DEPLIBFOLDERS),-I$Dinclude/)
 DEPLIBSS=$(foreach D,$(DEPLIBS),../$D/lib/lib$D_static.a)
 DEPLIBSD=$(foreach D,$(DEPLIBS),../$D/lib/lib$D.$(SOEXT))
+$(DEPLIBFOLDERS)%.dll:
+	make -C $(shell dirname $(@D)) dylib
+$(DEPLIBFOLDERS)%_static.a:
+	make -C $(shell dirname $(@D)) slib
 #-------------------------------------------------------------------------------
 #//sibling deps in progress
 #-------------------------------------------------------------------------------
@@ -38,46 +41,38 @@ CXXFLAGS=\
 	-std=c++0x\
 	-I./include\
 	-I./include/HTML\
-	$(DEPLIBSCF)\
+	-I../cpputils/include\
+	-I../mongoosecpp/include\
 	`pkg-config --cflags jsoncpp`\
 	`pkg-config --cflags cairo`
 LDFLAGSD=\
-	$(DEPLIBSL)\
+	-L../cpputils/lib\
+	-L../mongoosecpp/lib\
 	`pkg-config --libs jsoncpp`\
 	`pkg-config --libs cairo`\
-	$(DEPLIBSLND)
-ifneq (,$(findstring mingw,$(MACHINE)))
-	LDFLAGSS+=\
-		-ldl\
-		-lws2_32\
-		-lstdc++
-endif
+	-lmongoosecpp\
+	-lcpputils
 LDFLAGSS=\
-	$(DEPLIBSL)\
+	-L../cpputils/lib\
+	-L../mongoosecpp/lib\
 	`pkg-config --libs jsoncpp`\
 	`pkg-config --libs cairo`\
-	$(DEPLIBSLNS)
-ifneq (,$(findstring mingw,$(MACHINE)))
-	LDFLAGSD+=\
-		-ldl\
-		-lws2_32\
-		-lstdc++
-endif
+	-lcpputilsstatic
 DYBIN=./bin/a_shared
 RPATH=
 SBIN=./bin/a_static
 
 DYLIB=./lib/lib$(BASENAME).$(SOEXT)
 SLIB=./lib/lib$(BASENAME)_static.a
-all:\
-	$(DYLIB)\
-	$(SLIB)
 slib:\
 	$(SLIB)
-dylib:\
+dylibs:\
 	$(DYLIB)
 deplibs:\
 	$(DEPLIBSS)
+all:\
+	$(DYLIB)\
+	$(SLIB)
 MACHINE=$(shell $(CXX) -dumpmachine)
 ifneq (,$(findstring mingw,$(MACHINE)))
 $(DYLIB): $(DYLIBOBJS)
@@ -108,7 +103,7 @@ $(SLIB): $(SLIBOBJS)
 		rcs\
 		$(SLIB)\
 		$(SLIBOBJS)
-$(DYBUILDDIR)/%.o: %.cpp $(DEPLIBSD)
+$(DYBUILDDIR)/%.o: %.cpp
 	@printf "generating $@...\n"
 	@mkdir -p $(@D)
 	@$(CXX)\
@@ -169,15 +164,3 @@ test:
 	@echo $(DEPLIBSS)
 	@echo DEPLIBSD
 	@echo $(DEPLIBSD)
-	@echo LDFLAGSS
-	@echo $(LDFLAGSS)
-	@echo LDFLAGSD
-	@echo $(LDFLAGSD)
-
-#$(DEPLIBFOLDERS)%.dll:
-$(DEPLIBSS):
-	make -C $(shell dirname $(@D)) dylib
-#$(DEPLIBFOLDERS)%_static.a:
-$(DEPLIBSD):
-	make -C $(shell dirname $(@D)) slib
-

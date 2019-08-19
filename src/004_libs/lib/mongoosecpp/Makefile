@@ -43,6 +43,10 @@ else
 endif
 DYLIB=./lib/lib$(BASENAME).$(SOEXT)
 SLIB=./lib/lib$(BASENAME)_static.a
+slib:\
+	$(SLIB)
+dylib:\
+	$(DYLIB)
 all:\
 	$(DYLIB)\
 	$(SLIB)

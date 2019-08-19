@@ -34,6 +34,10 @@ SLIB=./lib/lib$(BASENAME)_static.a
 all:\
 	$(DYLIB)\
 	$(SLIB)
+slib:\
+	$(SLIB)
+dylib:\
+	$(DYLIB)
 ifneq (,$(findstring mingw,$(MACHINE)))
 $(DYLIB): $(DYLIBOBJS)
 	@mkdir -p $(@D)

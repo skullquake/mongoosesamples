@@ -151,83 +151,62 @@ namespace Mongoose{
 		}
 	}
 #endif
-
-	int Server::_handleRequest(struct mg_connection *conn)
-	{
+	int Server::_handleRequest(struct mg_connection *conn){
 		Request request(conn);
-
 		mutex.lock();
 		currentRequests[conn]=&request;
 		mutex.unlock();
-
 		Response *response=handleRequest(request);
-
 		mutex.lock();
 		currentRequests.erase(conn);
 		mutex.unlock();
-
-		if (response == NULL){
+		if(response==NULL){
 			return 0;
-		} else {
+		}else{
 			request.writeResponse(response);
 			delete response;
 			return 1;
 		}
 	}
-
-	bool Server::handles(string method, string url)
-	{
+	bool Server::handles(string method,string url){
 #ifndef NO_WEBSOCKET
 		if (url == "/websocket"){
 			return true;
 		}
 #endif
 
-		vector<Controller *>::iterator it;
-		for (it=controllers.begin(); it!=controllers.end(); it++){
-			if ((*it)->handles(method, url)){
+		vector<Controller*>::iterator it;
+		for(it=controllers.begin();it!=controllers.end();it++){
+			if ((*it)->handles(method,url)){
 				return true;
 			}
 		}
-
 		return false;
 	}
-
-	Response *Server::handleRequest(Request &request)
-	{
+	Response *Server::handleRequest(Request &request){
 		Response *response;
-		vector<Controller *>::iterator it;
-
+		vector<Controller*>::iterator it;
 		mutex.lock();
 		requests++;
 		mutex.unlock();
-
-		for (it=controllers.begin(); it!=controllers.end(); it++){
+		for(it=controllers.begin();it!=controllers.end();it++){
 			Controller *controller=*it;
 			response=controller->process(request);
-
-			if (response != NULL){
+			if(response!=NULL){
 				return response;
 			}
 		}
-
 		return NULL;
 	}
-
-	void Server::setOption(string key, string value)
-	{
+	void Server::setOption(string key, string value){
 		optionsMap[key]=value;
 	}
-
 #ifndef NO_WEBSOCKET
-	WebSockets &Server::getWebSockets()
-	{
+	WebSockets &Server::getWebSockets(){
 		return websockets;
 	}
 #endif
-
-	void Server::printStats()
-	{
+	void Server::printStats(){
 		int delta=getTime()-startTime;
 		if (delta){
 			cout<<"Requests: "<<requests<<", Requests/s: "<<(requests*1.0/delta)<<endl;

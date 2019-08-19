@@ -54,14 +54,9 @@ CXX=g++
 LDFLAGSS=\
 	-lsrv_static\
 	-lcpputils_static\
-	`pkg-config --libs jsoncpp`\
-	`pkg-config --libs cairo`\
 	-lmongoosecpp_static\
-	-lfoo_static\
-	-lbar_static\
-	-lbaz_static\
-	-lqux_static\
-	-lklutz_static
+	`pkg-config --libs jsoncpp`\
+	`pkg-config --libs cairo`
 ifneq (,$(findstring mingw,$(MACHINE)))
 	LDFLAGSS+=\
 		  -ldl\
@@ -73,14 +68,13 @@ BINS=./bin/$(BASENAME)_static
 	#-----------------------------------------------------------------------
 LDFLAGSD=\
 	`pkg-config --libs jsoncpp`\
-	`pkg-config --libs cairo`
+	`pkg-config --libs cairo`\
+	$(LIBSLND)
 ifneq (,$(findstring mingw,$(MACHINE)))
 	LDFLAGSD+=\
 		  -ldl\
 		  -lws2_32
 endif
-LDFLAGSD+=\
-	$(LIBSLND)
 $(foreach D,$(LIBFOLDERS),$(eval P := $(P)./lib/$(D)/lib:))
 BIND=./bin/$(BASENAME)_shared
 
@@ -143,6 +137,9 @@ test:
 	@echo $(SOEXT)
 	@echo $(_PATH)
 	@echo $(LIBSRP)
+	@echo $(LDFLAGSS)
+	@echo $(LDFLAGSD)
+
 clean:
 	rm -r ./bin/*
 cleanall:
