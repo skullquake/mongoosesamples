@@ -44,12 +44,12 @@ APPCFLAGS=\
 	-DSOEXT=\"$(SOEXT)\"
 APPLDFLAGS=\
 	-ldl
-ifneq (,$(findstring mingw,$(MACHINE)))
-LDFLAGS+=\
+ifeq (,$(findstring mingw,$(MACHINE)))
+APPLDFLAGS+=\
 	-lws2_32\
 	-lstdc++
 else
-LDFLAGS+=\
+APPLDFLAGS+=\
 	-lpthread\
 	-lc
 endif
