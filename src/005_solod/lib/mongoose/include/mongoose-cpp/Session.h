@@ -1,9 +1,8 @@
 #ifndef _MONGOOSE_SESSION_H
 #define _MONGOOSE_SESSION_H
 
-#include <map>
-#include "Mutex.h"
-#include"duktape/duktape.h"
+#include<map>
+#include"Mutex.h"
 
 using namespace std;
 
@@ -67,9 +66,6 @@ namespace Mongoose
 			 * @return int the number of sessions since the last activity of the session
 			 */
 			int getAge();
-			duk_context* getCtx();
-			void setCtx(duk_context*);
-			duk_context* ctx;
 		protected:
 			map<string, string> values;
 			int date;

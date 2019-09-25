@@ -36,7 +36,8 @@ LIBCFLAGS=\
 	-I../mongoose/include/mongoose\
 	-L../
 LIBLDFLAGS=\
-	-lmongoose
+	-ldl
+
 ifneq (,$(findstring mingw,$(OS)))
 LIBLDFLAGS+=\
 	-Wl,-unresolved-symbols=ignore-in-shared-libs

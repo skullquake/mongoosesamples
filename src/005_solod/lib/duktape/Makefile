@@ -32,11 +32,12 @@ LIBSRC+=\
 LIBOBJS=$(addprefix $(LIBBUILDDIR)/,$(patsubst %.c,%.o ,$(patsubst %.cpp,%.o,$(LIBSRC))))
 LIBCFLAGS=\
 	-I./include\
-	-I../mongoose/include\
-	-I../mongoose/include/mongoose\
+	-I./include/extras/console\
+	-I./include/extras/print-alert\
+	-I./include/extras/module-duktape\
 	-L../
 LIBLDFLAGS=\
-	-lmongoose
+
 ifneq (,$(findstring mingw,$(OS)))
 LIBLDFLAGS+=\
 	-Wl,-unresolved-symbols=ignore-in-shared-libs
@@ -109,7 +110,6 @@ $(LIBBUILDDIR)/%.o: %.c
 		$(LIBCFLAGS)\
 		-c $<\
 		-fPIC \
-		-rdynamic \
 		$(LIBLDFLAGS)\
 		-o $@
 

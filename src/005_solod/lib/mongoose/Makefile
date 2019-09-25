@@ -32,17 +32,23 @@ LIBSRC+=\
 LIBOBJS=$(addprefix $(LIBBUILDDIR)/,$(patsubst %.c,%.o ,$(patsubst %.cpp,%.o,$(LIBSRC))))
 LIBCFLAGS=\
 	-I./include\
-	-I../mongoose/include\
-	-I../mongoose/include/mongoose\
+	-I./include/mongoose-cpp\
+	-I./include/mongoose\
+	-I../duktape/include\
 	-L../
 LIBLDFLAGS=\
-	-lmongoose
+
 ifneq (,$(findstring mingw,$(OS)))
 LIBLDFLAGS+=\
-	-Wl,-unresolved-symbols=ignore-in-shared-libs
+	-Wl,-unresolved-symbols=ignore-in-shared-libs\
+	-lws2_32\
+	-lstdc++
 else
 LIBLDFLAGS+=\
-	-rdynamic 
+	-rdynamic\
+	-rdynamic\
+	-lpthread\
+	-lc
 endif
 #-------------------------------------------------------------------------------
 #RULES
@@ -109,7 +115,6 @@ $(LIBBUILDDIR)/%.o: %.c
 		$(LIBCFLAGS)\
 		-c $<\
 		-fPIC \
-		-rdynamic \
 		$(LIBLDFLAGS)\
 		-o $@
 
@@ -117,7 +122,6 @@ $(LIBBUILDDIR)/%.o: %.c
 #MISC
 #-------------------------------------------------------------------------------
 .phony:\
-	run\
 	clean\
 	lsvar\
 	nm\
@@ -130,11 +134,8 @@ objdump:
 	objdump -t ./lib/liba.so
 clean:
 	@rm -r $(LIBBUILDDIR) $(LIBLN) $(LIBBIN)
-run:
-	$(APPBIN)
 lsvar:
 	@echo $(LIBSVERPTH)
-
 
 
 

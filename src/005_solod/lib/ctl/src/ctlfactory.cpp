@@ -1,9 +1,9 @@
-#include"shape/shapefactory.h"
+#include"ctlfactory.h"
 #include<iostream>
 #include<dlfcn.h>
-ShapeFactory::ShapeFactory(){
+CtlFactory::CtlFactory(){
 }
-ShapeFactory::~ShapeFactory(){
+CtlFactory::~CtlFactory(){
 	for(auto a:mf){
 		try{
 			std::cout<<"Unloading "<<a.first<<"...";
@@ -14,7 +14,7 @@ ShapeFactory::~ShapeFactory(){
 		}
 	}
 }
-bool ShapeFactory::load(std::string a){
+bool CtlFactory::load(std::string a){
 	bool ret=false;
 	if(a.compare("")){
 		if(mf.count(a)){
@@ -23,12 +23,13 @@ bool ShapeFactory::load(std::string a){
 		}else{
 			std::string sopath=a;
 			void *handle;
-			if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			//if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			if((handle=dlopen(sopath.c_str(),RTLD_NOW))==NULL){
 				std::cerr<<"Failed to load "<<sopath<<std::endl;
 			}else{
 				std::cout<<"Loading "<<a<<"...";
-				Shape* (*mkr)();
-				mkr=(Shape* (*)())dlsym(handle,"maker");
+				Mongoose::WebController* (*mkr)();
+				mkr=(Mongoose::WebController* (*)())dlsym(handle,"ctlmaker");
 				if(mkr==NULL){
 					std::cerr<<"Failed to get function"<<std::endl;
 					dlclose(handle);
@@ -45,7 +46,7 @@ bool ShapeFactory::load(std::string a){
 
 
 }
-bool ShapeFactory::unload(std::string a){
+bool CtlFactory::unload(std::string a){
 	bool ret=false;
 	if(a.compare("")){
 		if(mf.count(a)){
@@ -66,7 +67,7 @@ bool ShapeFactory::unload(std::string a){
 	return ret;
 
 }
-bool ShapeFactory::remove(std::string a){
+bool CtlFactory::remove(std::string a){
 	bool ret=false;
 	if(a.compare("")){
 		if(mf.count(a)){
@@ -86,20 +87,21 @@ bool ShapeFactory::remove(std::string a){
 	}
 	return ret;
 }
-Shape* ShapeFactory::create(std::string a){
-	Shape* shape=NULL;
+Mongoose::WebController* CtlFactory::create(std::string a){
+	Mongoose::WebController* shape=NULL;
 	if(a.compare("")){
 		if(mf.count(a)){
 			shape=(mf[a])();
 		}else{
 			std::string sopath=a;
 			void *handle;
-			if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			//if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			if((handle=dlopen(sopath.c_str(),RTLD_NOW))==NULL){
 				std::cerr<<"Failed to load "<<sopath<<std::endl;
 			}else{
 				std::cout<<"Loaded "<<sopath<<std::endl;
-				Shape* (*mkr)();
-				mkr=(Shape* (*)())dlsym(handle,"maker");
+				Mongoose::WebController* (*mkr)();
+				mkr=(Mongoose::WebController* (*)())dlsym(handle,"ctlmaker");
 				if(mkr==NULL){
 					std::cerr<<"Failed to get function"<<std::endl;
 					dlclose(handle);

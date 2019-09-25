@@ -8,7 +8,6 @@ using namespace std;
 namespace Mongoose
 {
 	Session::Session()
-	:ctx(NULL)
 	{
 		//std::cout<<"Session()"<<std::endl;
 		ping();
@@ -65,13 +64,5 @@ namespace Mongoose
 	int Session::getAge()
 	{
 		return time(NULL)-date;
-	}
-	duk_context* Session::getCtx()
-	{
-		return this->ctx;
-	}
-	void Session::setCtx(duk_context* c)
-	{
-		this->ctx=c;
 	}
 }
