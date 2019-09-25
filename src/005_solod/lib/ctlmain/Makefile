@@ -32,11 +32,10 @@ LIBSRC+=\
 LIBOBJS=$(addprefix $(LIBBUILDDIR)/,$(patsubst %.c,%.o ,$(patsubst %.cpp,%.o,$(LIBSRC))))
 LIBCFLAGS=\
 	-I./include\
-	-I../mongoose/include\
-	-I../mongoose/include/mongoose\
+	-I../../include\
 	-L../
 LIBLDFLAGS=\
-	-lmongoose
+
 ifneq (,$(findstring mingw,$(OS)))
 LIBLDFLAGS+=\
 	-Wl,-unresolved-symbols=ignore-in-shared-libs

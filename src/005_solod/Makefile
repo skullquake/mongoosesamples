@@ -31,18 +31,20 @@ APPOBJS=$(addprefix $(APPBUILDDIR)/,$(patsubst %.c,%.o ,$(patsubst %.cpp,%.o,$(A
 APPRPATH=./lib
 APPCFLAGS=\
 	-I./include\
-	-I./lib/mongoose/include\
-	-I./lib/mongoose/include/mongoose\
-	-I./lib/ctl/include\
+	-I./include/duktape\
+	-I./include/duktape/extras/console\
+	-I./include/duktape/extras/print-alert\
+	-I./include/duktape/extras/module-duktape\
+	-I./include/mongoose-cpp\
+	-I./include/mongoose\
 	-DNO_WEBSOCKET\
 	-fpermissive\
+	-I./include/shape\
 	-L$(LIBDIR)\
 	-DSOEXT=\"$(SOEXT)\"
 APPLDFLAGS=\
-	-ldl\
-	-lmongoose\
-	-lctl
-ifeq (,$(findstring mingw,$(MACHINE)))
+	-ldl
+ifneq (,$(findstring mingw,$(MACHINE)))
 APPLDFLAGS+=\
 	-lws2_32\
 	-lstdc++
@@ -51,14 +53,6 @@ APPLDFLAGS+=\
 	-rdynamic\
 	-lpthread\
 	-lc
-endif
-#-----------------------------------------------------------------------
-#rpath/dll
-#-----------------------------------------------------------------------
-ifeq (,$(findstring mingw,$(MACHINE)))
-_PATH=$$PATH:$(LIBDIR)
-else
-_PATH=$$PATH
 endif
 #-------------------------------------------------------------------------------
 #RULES
@@ -124,7 +118,7 @@ clean:
 CTLLIB=ctlfoo
 CTLLIB=ctlmain
 run: $(APPBIN)
-	PATH=$(_PATH) $(APPBIN) $(CTLLIB)
+	$(APPBIN) $(CTLLIB)
 lsvar:
 	@echo $(LIBDIR)
 	@echo $(LIBS)

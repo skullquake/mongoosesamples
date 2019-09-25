@@ -1,3 +1,55 @@
+/*
+#include<iostream>
+#include<dlfcn.h>
+#include"shape/shapefactory.h"
+#include"app/a.h"
+#ifndef SOEXT
+#define SOEXT "so"
+#endif
+int main(int argc,char** argv){
+	std::string libnam;
+	ShapeFactory sf;
+	sf.load((std::string("./lib/libtriangle")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libsquare")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libparallelogram")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/librhombus")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libcircle")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/liboval")+std::string(SOEXT)).c_str());
+	sf.unload((std::string("./lib/libtriangle")+std::string(SOEXT)).c_str());
+	sf.unload((std::string("./lib/libsquare")+std::string(SOEXT)).c_str());
+	sf.unload((std::string("./lib/libparallelogram")+std::string(SOEXT)).c_str());
+	sf.unload((std::string("./lib/librhombus")+std::string(SOEXT)).c_str());
+	sf.unload((std::string("./lib/libcircle")+std::string(SOEXT)).c_str());
+	sf.unload((std::string("./lib/liboval")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libtriangle")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libsquare")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libparallelogram")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/librhombus")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/libcircle")+std::string(SOEXT)).c_str());
+	sf.load((std::string("./lib/liboval")+std::string(SOEXT)).c_str());
+	{
+		std::cout<<"----------------------------------------"<<std::endl;
+		libnam=((std::string("./lib/libtriangle")+std::string(SOEXT)).c_str());
+		Shape* s0=sf.create(libnam);
+		Shape* s1=sf.create(libnam);
+		sf.remove(libnam);
+		Shape* s2=sf.create(libnam);
+		Shape* s3=sf.create(libnam);
+	}
+	{
+		std::cout<<"----------------------------------------"<<std::endl;
+		libnam=((std::string("./lib/libsquare")+std::string(SOEXT)).c_str());
+		Shape* s0=sf.create(libnam);
+		Shape* s1=sf.create(libnam);
+		sf.remove(libnam);
+		Shape* s2=sf.create(libnam);
+		Shape* s3=sf.create(libnam);
+	}
+	return 0;
+}
+*/
+
+
 #ifndef SOEXT
 #define SOEXT "so"
 #endif
@@ -7,7 +59,7 @@
 #include"mongoose-cpp/Server.h"
 #include"mongoose-cpp/WebController.h"
 //#include"app/ctl/ctlmain.h"
-#include"ctlfactory.h"
+#include"ctl/ctlfactory.h"
 int main(int argc,char** argv){
 	if(argc!=2){
 		std::cerr<<"Usage: PROG LIBNAM"<<std::endl;
