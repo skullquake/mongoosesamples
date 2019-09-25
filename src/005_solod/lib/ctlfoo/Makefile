@@ -41,7 +41,7 @@ LIBLDFLAGS+=\
 	-Wl,-unresolved-symbols=ignore-in-shared-libs
 else
 LIBLDFLAGS+=\
-		-rdynamic 
+	-rdynamic 
 endif
 #-------------------------------------------------------------------------------
 #RULES

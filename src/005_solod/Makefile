@@ -50,6 +50,7 @@ APPLDFLAGS+=\
 	-lstdc++
 else
 APPLDFLAGS+=\
+	-rdynamic\
 	-lpthread\
 	-lc
 endif
@@ -57,7 +58,6 @@ endif
 #RULES
 #-------------------------------------------------------------------------------
 all:\
-	libs\
 	$(APPBIN)
 #-------------------------------------------------------------------------------
 #APPLICATION RULES
@@ -115,8 +115,10 @@ objdump:
 clean:
 	@rm -r ./bin
 	make cleanlibs
+CTLLIB=ctlmain
+CTLLIB=ctlfoo
 run: $(APPBIN)
-	$(APPBIN)
+	$(APPBIN) $(CTLLIB)
 lsvar:
 	@echo $(LIBDIR)
 	@echo $(LIBS)

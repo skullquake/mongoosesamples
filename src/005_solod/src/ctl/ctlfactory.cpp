@@ -23,12 +23,13 @@ bool CtlFactory::load(std::string a){
 		}else{
 			std::string sopath=a;
 			void *handle;
-			if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			//if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			if((handle=dlopen(sopath.c_str(),RTLD_NOW))==NULL){
 				std::cerr<<"Failed to load "<<sopath<<std::endl;
 			}else{
 				std::cout<<"Loading "<<a<<"...";
 				Mongoose::WebController* (*mkr)();
-				mkr=(Mongoose::WebController* (*)())dlsym(handle,"maker");
+				mkr=(Mongoose::WebController* (*)())dlsym(handle,"ctlmaker");
 				if(mkr==NULL){
 					std::cerr<<"Failed to get function"<<std::endl;
 					dlclose(handle);
@@ -94,12 +95,13 @@ Mongoose::WebController* CtlFactory::create(std::string a){
 		}else{
 			std::string sopath=a;
 			void *handle;
-			if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			//if((handle=dlopen(sopath.c_str(),RTLD_LAZY))==NULL){
+			if((handle=dlopen(sopath.c_str(),RTLD_NOW))==NULL){
 				std::cerr<<"Failed to load "<<sopath<<std::endl;
 			}else{
 				std::cout<<"Loaded "<<sopath<<std::endl;
 				Mongoose::WebController* (*mkr)();
-				mkr=(Mongoose::WebController* (*)())dlsym(handle,"maker");
+				mkr=(Mongoose::WebController* (*)())dlsym(handle,"ctlmaker");
 				if(mkr==NULL){
 					std::cerr<<"Failed to get function"<<std::endl;
 					dlclose(handle);

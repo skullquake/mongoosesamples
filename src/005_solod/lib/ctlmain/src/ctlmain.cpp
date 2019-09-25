@@ -12,6 +12,7 @@ namespace app::ctl{
 	CtlMain::CtlMain()
 	             : ::Mongoose::WebController()
 	{
+		std::cout<<"asdf"<<std::endl;
 	}
 	CtlMain::~CtlMain(){
 	}
@@ -22,7 +23,7 @@ namespace app::ctl{
 	}
 	void CtlMain::home(::Mongoose::Request &request, ::Mongoose::StreamResponse &response){
 		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:home:begin"<<std::endl;
-		response<<"done"<<std::endl;
+		response<<"donezz"<<std::endl;
 		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:home:end"<<std::endl;
 	}
 }
