@@ -16,14 +16,14 @@ namespace app::ctl{
 	CtlFoo::~CtlFoo(){
 	}
 	void CtlFoo::setup(){
-		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl: setting up endpoints..."<<std::endl;
+		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:foo: setting up endpoints..."<<std::endl;
 		addRoute("GET","/",CtlFoo,home);
-		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl: done"<<std::endl;
+		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:foo: done"<<std::endl;
 	}
 	void CtlFoo::home(::Mongoose::Request &request, ::Mongoose::StreamResponse &response){
-		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:home:begin"<<std::endl;
-		response<<"donefoo"<<std::endl;
-		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:home:end"<<std::endl;
+		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:foo:home:begin"<<std::endl;
+		response<<"ctl:foo:home"<<std::endl;
+		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:foo:home:end"<<std::endl;
 	}
 }
 extern "C" {

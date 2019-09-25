@@ -115,8 +115,8 @@ objdump:
 clean:
 	@rm -r ./bin
 	make cleanlibs
-CTLLIB=ctlmain
 CTLLIB=ctlfoo
+CTLLIB=ctlmain
 run: $(APPBIN)
 	$(APPBIN) $(CTLLIB)
 lsvar:
