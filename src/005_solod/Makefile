@@ -41,7 +41,9 @@ APPCFLAGS=\
 	-fpermissive\
 	-I./include/shape\
 	-L$(LIBDIR)\
-	-DSOEXT=\"$(SOEXT)\"
+	-DSOEXT=\"$(SOEXT)\"\
+	-DENABLE_REGEX\
+	-DENABLE_REGEX_URL
 APPLDFLAGS=\
 	-ldl
 ifneq (,$(findstring mingw,$(MACHINE)))

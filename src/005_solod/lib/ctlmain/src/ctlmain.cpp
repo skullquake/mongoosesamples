@@ -18,7 +18,7 @@ namespace app::ctl{
 	}
 	void CtlMain::setup(){
 		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:main: setting up endpoints..."<<std::endl;
-		addRoute("GET","/",CtlMain,home);
+		addRoute("GET","/*",CtlMain,home);
 		std::cout<<std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()<<" ctl:main: done"<<std::endl;
 	}
 	void CtlMain::home(::Mongoose::Request &request, ::Mongoose::StreamResponse &response){

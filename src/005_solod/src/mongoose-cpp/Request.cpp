@@ -106,12 +106,19 @@ namespace Mongoose{
 		this->url=a;
 	}
 #ifdef ENABLE_REGEX_URL
+	/*
 	smatch Request::getMatches(){
+		std::cout<<"smatch Request::getMatches(){"<<std::endl;
 		return matches;
 	}
+	*/
 	bool Request::match(string pattern){
-		key=method+":"+url;
+		std::cout<<"bool Request::match(string pattern){"<<std::endl;
+		std::string key=method+":"+url;
+		/*
 		return regex_match(key,matches,regex(pattern));
+		*/
+		return false;
 	}
 #endif
 	void Request::writeResponse(Response *response){
