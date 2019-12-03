@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<h3>log:</h3>
+		<div id="log"></div>
+		<script>
+			/*
+		setInterval(
+			$.proxy(
+				function(){
+					$.get(
+						"/api/v1/test",
+						$.proxy(
+							function(data) {
+								$('#log').text(JSON.stringify(data));
+							},
+							this
+						),
+						"json"
+					);
+				},
+				this,
+			),
+			20
+		);
+			*/
+		var test=function(){
+			$.get(
+				"/api/v1/test",
+				$.proxy(
+					function(data) {
+						$('#log').text(JSON.stringify(data));
+						test();
+					},
+					this
+				),
+				"json"
+			);
+		};
+		test();
+		</script>
+	</body>
+</html>
+

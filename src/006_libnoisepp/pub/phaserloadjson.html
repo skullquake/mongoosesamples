@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/phaser.min.js"></script>
+	<script src="js/phaser-arcade-physics.min.js"></script>
+	<script src="js/socket.io/1.3.5/socket.io.min.js"></script>
+	<style>
+	</style>
+</head>
+<body>
+	<div id="log"></div>
+	<div id="game-container">
+	</div>
+	<script>
+//$('#log').text(JSON.stringify(d.data));
+const config = {
+	type: Phaser.AUTO, // Which renderer to use
+	width: 800, // Canvas width in pixels
+	height: 600, // Canvas height in pixels
+	parent: "game-container", // ID of the DOM element to add the canvas to
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	},
+};
+const game = new Phaser.Game(config);
+function preload() {
+	this.load.image("mario-tiles", "/assets/spritesheets/mario.png");
+	this.load.json("level", "/api/v1/test");
+}
+function create() {
+	var level=this.cache.json.get('level').data;
+	// When loading from an array, make sure to specify the tileWidth and tileHeight
+	const map = this.make.tilemap(
+		{
+			data:level,
+			tileWidth: 16,
+			tileHeight: 16
+		}
+	);
+	const tiles = map.addTilesetImage("mario-tiles");
+	const layer = map.createStaticLayer(0, tiles, 0, 0);
+	// Phaser supports multiple cameras, but you can access the default camera like this:
+	const camera = this.cameras.main;
+	// Set up the arrows to control the camera
+	const cursors = this.input.keyboard.createCursorKeys();
+	controls = new Phaser.Cameras.Controls.FixedKeyControl({
+		camera: camera,
+		left: cursors.left,
+		right: cursors.right,
+		up: cursors.up,
+		down: cursors.down,
+		speed: 0.5
+	});
+	// Constrain the camera so that it isn't allowed to move outside the width/height of tilemap
+	camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+}
+function update(time, delta) {
+	controls.update(delta);
+}
+		</script>
+	</body>
+</html>
+
+
+
+

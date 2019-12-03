@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<h3>Index:</h3>
+		<h4>
+			<a href="./ajax000.html">Ajax 000</a>
+		</h4>
+		<h4>
+			<a href="./startbootstrap-sb-admin-2">Admin</a>
+		</h4>
+		<h4>
+			<a href="./phasersine.html">Phaser:Sine</a>
+		</h4>
+		<h4>
+			<a href="./phaserperlin.html">Phaser:Perlin</a>
+		</h4>
+		<h4>
+			<a href="./phaserfractal.html">Phaser:Fractal</a>
+		</h4>
+	</body>
+</html>
+

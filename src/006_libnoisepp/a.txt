@@ -1,0 +1,2360 @@
+{
+	"actions" : 
+	[
+		{
+			"children" : 
+			[
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : -238737072
+				},
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : -238737072
+				}
+			],
+			"combine" : 
+			[
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : 0
+				},
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : 0
+				}
+			],
+			"detached" : false,
+			"name" : "",
+			"properties" : 
+			[
+				{
+					"name" : "",
+					"targetType" : "",
+					"value" : ""
+				},
+				{
+					"name" : "",
+					"targetType" : "",
+					"value" : ""
+				}
+			],
+			"type" : 316669952
+		},
+		{
+			"children" : 
+			[
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : 0
+				},
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : 0
+				}
+			],
+			"combine" : 
+			[
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : 0
+				},
+				{
+					"children" : [],
+					"combine" : [],
+					"detached" : false,
+					"name" : "",
+					"properties" : [],
+					"type" : 0
+				}
+			],
+			"detached" : false,
+			"name" : "",
+			"properties" : 
+			[
+				{
+					"name" : "",
+					"targetType" : "",
+					"value" : ""
+				},
+				{
+					"name" : "",
+					"targetType" : "",
+					"value" : ""
+				}
+			],
+			"type" : 316669952
+		},
+		{
+			"children" : [],
+			"combine" : [],
+			"detached" : false,
+			"name" : "",
+			"properties" : [],
+			"type" : 0
+		},
+		{
+			"children" : [],
+			"combine" : [],
+			"detached" : false,
+			"name" : "",
+			"properties" : [],
+			"type" : 0
+		}
+	],
+	"activeCamera_" : "",
+	"ambientColor" : 
+	[
+		7.2867520144890488e-43,
+		null,
+		-1.9528709637116208e+30
+	],
+	"animations" : 
+	[
+		{
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateTo" : 0,
+			"dataType" : 0,
+			"framePerSecond" : 0,
+			"keys" : 
+			[
+				{
+					"frame" : 0,
+					"values" : 
+					[
+						0.0,
+						1.0
+					]
+				},
+				{
+					"frame" : 0,
+					"values" : 
+					[
+						0.0,
+						1.0
+					]
+				}
+			],
+			"loopBehavior" : 0,
+			"name" : "",
+			"property" : ""
+		},
+		{
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateTo" : 0,
+			"dataType" : 0,
+			"framePerSecond" : 0,
+			"keys" : 
+			[
+				{
+					"frame" : 0,
+					"values" : 
+					[
+						0.0,
+						1.0
+					]
+				},
+				{
+					"frame" : 0,
+					"values" : 
+					[
+						0.0,
+						1.0
+					]
+				}
+			],
+			"loopBehavior" : 0,
+			"name" : "",
+			"property" : ""
+		},
+		{
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateTo" : 0,
+			"dataType" : 0,
+			"framePerSecond" : 0,
+			"keys" : [],
+			"loopBehavior" : 0,
+			"name" : "",
+			"property" : ""
+		},
+		{
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateTo" : 0,
+			"dataType" : 0,
+			"framePerSecond" : 0,
+			"keys" : [],
+			"loopBehavior" : 0,
+			"name" : "",
+			"property" : ""
+		}
+	],
+	"autoAnimate" : false,
+	"autoAnimateFrom" : 127,
+	"autoAnimateLoop" : false,
+	"autoAnimateSpeed" : 4.4841550858394146e-44,
+	"autoAnimateTo" : 992962628,
+	"autoClear" : true,
+	"cameras" : 
+	[
+		{
+			"alpha" : 0.0,
+			"applyGravity" : false,
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateSpeed" : 0.0,
+			"autoAnimateTo" : 0,
+			"beta" : 0.0,
+			"cameraRigMode" : 0,
+			"checkCollisions" : false,
+			"ellipsoid" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"eye_space" : 0.0,
+			"fov" : 0.0,
+			"heightOffset" : 0.0,
+			"id" : "",
+			"inertia" : 0.0,
+			"lockedTargetId" : "",
+			"maxZ" : 0.0,
+			"minZ" : 0.0,
+			"name" : "",
+			"parentId" : "",
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"radius" : 0.0,
+			"rotationOffset" : 0.0,
+			"speed" : 0.0,
+			"tags" : "",
+			"target" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"type" : ""
+		},
+		{
+			"alpha" : 0.0,
+			"applyGravity" : false,
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateSpeed" : 0.0,
+			"autoAnimateTo" : 0,
+			"beta" : 0.0,
+			"cameraRigMode" : 0,
+			"checkCollisions" : false,
+			"ellipsoid" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"eye_space" : 0.0,
+			"fov" : 0.0,
+			"heightOffset" : 0.0,
+			"id" : "",
+			"inertia" : 0.0,
+			"lockedTargetId" : "",
+			"maxZ" : 0.0,
+			"minZ" : 0.0,
+			"name" : "",
+			"parentId" : "",
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"radius" : 0.0,
+			"rotationOffset" : 0.0,
+			"speed" : 0.0,
+			"tags" : "",
+			"target" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"type" : ""
+		}
+	],
+	"clearColor" : 
+	[
+		1.7796490496925177e-43,
+		0.0,
+		8.4077907859489024e-45
+	],
+	"collisionsEnabled" : false,
+	"geometries" : 
+	{
+		"boxes" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"id" : "",
+				"size" : 0.0,
+				"tags" : ""
+			},
+			{
+				"canBeRegenerated" : false,
+				"id" : "",
+				"size" : 0.0,
+				"tags" : ""
+			}
+		],
+		"cylinders" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"diameterBottom" : 0.0,
+				"diameterTop" : 0.0,
+				"height" : 0.0,
+				"id" : "",
+				"subdivisions" : 0,
+				"tags" : "",
+				"tesselation" : 0.0
+			},
+			{
+				"canBeRegenerated" : false,
+				"diameterBottom" : 0.0,
+				"diameterTop" : 0.0,
+				"height" : 0.0,
+				"id" : "",
+				"subdivisions" : 0,
+				"tags" : "",
+				"tesselation" : 0.0
+			}
+		],
+		"grounds" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"height" : 0.0,
+				"id" : "",
+				"subdivisions" : 0.0,
+				"tags" : "",
+				"width" : 0.0
+			},
+			{
+				"canBeRegenerated" : false,
+				"height" : 0.0,
+				"id" : "",
+				"subdivisions" : 0.0,
+				"tags" : "",
+				"width" : 0.0
+			}
+		],
+		"planes" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"id" : "",
+				"size" : 0.0,
+				"tags" : ""
+			},
+			{
+				"canBeRegenerated" : false,
+				"id" : "",
+				"size" : 0.0,
+				"tags" : ""
+			}
+		],
+		"spheres" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"diameter" : 0.0,
+				"id" : "",
+				"segments" : 0.0,
+				"tags" : ""
+			},
+			{
+				"canBeRegenerated" : false,
+				"diameter" : 0.0,
+				"id" : "",
+				"segments" : 0.0,
+				"tags" : ""
+			}
+		],
+		"torusKnots" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"id" : "",
+				"p" : 0.0,
+				"q" : 0.0,
+				"radialSegments" : 0.0,
+				"radius" : 0.0,
+				"tags" : "",
+				"tube" : 0.0,
+				"tubularSegments" : 0.0
+			},
+			{
+				"canBeRegenerated" : false,
+				"id" : "",
+				"p" : 0.0,
+				"q" : 0.0,
+				"radialSegments" : 0.0,
+				"radius" : 0.0,
+				"tags" : "",
+				"tube" : 0.0,
+				"tubularSegments" : 0.0
+			}
+		],
+		"toruses" : 
+		[
+			{
+				"canBeRegenerated" : false,
+				"diameter" : 0.0,
+				"id" : "",
+				"tags" : "",
+				"tesselation" : 0.0,
+				"thickness" : 0.0
+			},
+			{
+				"canBeRegenerated" : false,
+				"diameter" : 0.0,
+				"id" : "",
+				"tags" : "",
+				"tesselation" : 0.0,
+				"thickness" : 0.0
+			}
+		],
+		"vertexData" : 
+		[
+			{
+				"colors" : [],
+				"id" : "",
+				"indices" : [],
+				"matricesIndices" : [],
+				"matricesWeights" : [],
+				"normals" : [],
+				"positions" : [],
+				"tags" : "",
+				"updatable" : false,
+				"uvs" : [],
+				"uvs2" : [],
+				"uvs3" : [],
+				"uvs4" : [],
+				"uvs5" : [],
+				"uvs6" : []
+			},
+			{
+				"colors" : [],
+				"id" : "",
+				"indices" : [],
+				"matricesIndices" : [],
+				"matricesWeights" : [],
+				"normals" : [],
+				"positions" : [],
+				"tags" : "",
+				"updatable" : false,
+				"uvs" : [],
+				"uvs2" : [],
+				"uvs3" : [],
+				"uvs4" : [],
+				"uvs5" : [],
+				"uvs6" : []
+			}
+		]
+	},
+	"gravity" : 
+	[
+		1.7796490496925177e-43,
+		2.1019476964872256e-44,
+		0.0
+	],
+	"lensFlareSystems" : 
+	[
+		{
+			"borderLimit" : 0,
+			"emitterId" : "",
+			"flares" : []
+		},
+		{
+			"borderLimit" : 0,
+			"emitterId" : "",
+			"flares" : []
+		}
+	],
+	"lights" : 
+	[
+		{
+			"angle" : 0.0,
+			"animations" : 
+			[
+				{
+					"autoAnimate" : false,
+					"autoAnimateFrom" : 0,
+					"autoAnimateLoop" : false,
+					"autoAnimateTo" : 0,
+					"dataType" : 0,
+					"framePerSecond" : 0,
+					"keys" : 
+					[
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						},
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						}
+					],
+					"loopBehavior" : 316801472,
+					"name" : "",
+					"property" : ""
+				},
+				{
+					"autoAnimate" : false,
+					"autoAnimateFrom" : 0,
+					"autoAnimateLoop" : false,
+					"autoAnimateTo" : 0,
+					"dataType" : 0,
+					"framePerSecond" : 0,
+					"keys" : 
+					[
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						},
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						}
+					],
+					"loopBehavior" : 316801472,
+					"name" : "",
+					"property" : ""
+				}
+			],
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateSpeed" : 0.0,
+			"autoAnimateTo" : 0,
+			"diffuse" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"direction" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"excludedMeshesIds" : [],
+			"exponent" : 0.0,
+			"groundColor" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"id" : "",
+			"includedOnlyMeshesIds" : [],
+			"intensity" : 0.0,
+			"keys" : [],
+			"name" : "",
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"range" : 0.0,
+			"specular" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"tags" : "",
+			"type" : 0
+		},
+		{
+			"angle" : 0.0,
+			"animations" : 
+			[
+				{
+					"autoAnimate" : false,
+					"autoAnimateFrom" : 0,
+					"autoAnimateLoop" : false,
+					"autoAnimateTo" : 0,
+					"dataType" : 0,
+					"framePerSecond" : 0,
+					"keys" : 
+					[
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						},
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						}
+					],
+					"loopBehavior" : 316801472,
+					"name" : "",
+					"property" : ""
+				},
+				{
+					"autoAnimate" : false,
+					"autoAnimateFrom" : 0,
+					"autoAnimateLoop" : false,
+					"autoAnimateTo" : 0,
+					"dataType" : 0,
+					"framePerSecond" : 0,
+					"keys" : 
+					[
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						},
+						{
+							"frame" : 1065353216,
+							"values" : 
+							[
+								0.0,
+								1.0
+							]
+						}
+					],
+					"loopBehavior" : 316801472,
+					"name" : "",
+					"property" : ""
+				}
+			],
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateSpeed" : 0.0,
+			"autoAnimateTo" : 0,
+			"diffuse" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"direction" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"excludedMeshesIds" : [],
+			"exponent" : 0.0,
+			"groundColor" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"id" : "",
+			"includedOnlyMeshesIds" : [],
+			"intensity" : 0.0,
+			"keys" : [],
+			"name" : "",
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"range" : 0.0,
+			"specular" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"tags" : "",
+			"type" : 0
+		}
+	],
+	"materials" : 
+	[
+		{
+			"alpha" : 0.0,
+			"ambient" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"ambientTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 0,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 0.0,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : 0.0,
+				"vOffset" : 0.0,
+				"vScale" : 0.0,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"backFaceCulling" : false,
+			"bumpTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 112,
+				"coordinatesMode" : -238737584,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 7.4616340628367859e-41,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.5694542800437951e-43,
+				"uOffset" : 1.7796490496925177e-43,
+				"uScale" : 1.5694542800437951e-43,
+				"vAng" : 6.8876622118493409e-41,
+				"vOffset" : 2.6097336822578572e-27,
+				"vScale" : 1.4845437789886136e-27,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"checkReadOnlyOnce" : false,
+			"diffuse" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"diffuseFresnelParameters" : 
+			{
+				"bias" : 0.0,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					0.0026765028014779091,
+					-42756472.0,
+					0.0
+				],
+				"power" : 0.0,
+				"rightColor" : 
+				[
+					0.0,
+					0.0,
+					0.0
+				]
+			},
+			"diffuseTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 112,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 0.0,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : 0.0,
+				"vOffset" : 0.0,
+				"vScale" : 0.0,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"disableDepthWrite" : false,
+			"emissive" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"emissiveFresnelParameters" : 
+			{
+				"bias" : 1.8216880036222622e-44,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					0.0026765028014779091,
+					-42756472.0,
+					4.4841550858394146e-44
+				],
+				"power" : 0.0,
+				"rightColor" : 
+				[
+					0.0,
+					0.0,
+					0.0
+				]
+			},
+			"emissiveTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 0,
+				"coordinatesMode" : -238736993,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : true,
+				"level" : -1.9526235872657822e+30,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.7796490496925177e-43,
+				"uOffset" : 1.7796490496925177e-43,
+				"uScale" : 1.7796490496925177e-43,
+				"vAng" : 2.1860939983317912e-27,
+				"vOffset" : -1.9526252495387842e+30,
+				"vScale" : -1.9526234361500547e+30,
+				"wAng" : 1.5694542800437951e-43,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"id" : "",
+			"indexOfRefraction" : -1.9528431584177697e+30,
+			"lightmapTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 112,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : true,
+				"level" : -1.952603791105486e+30,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.5694542800437951e-43,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : -1.952550598369423e+30,
+				"vOffset" : 5.6051938572992683e-45,
+				"vScale" : 1.422316982485462e-27,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : true
+			},
+			"name" : "",
+			"opacityFresnelParameters" : 
+			{
+				"bias" : 0.0,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					0.0,
+					1.8216880036222622e-44,
+					0.0
+				],
+				"power" : 1.4012984643248171e-45,
+				"rightColor" : 
+				[
+					0.0026765028014779091,
+					-42756472.0,
+					0.0
+				]
+			},
+			"opacityTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 127,
+				"coordinatesMode" : -238737203,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 1.4012984643248171e-45,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.7796490496925177e-43,
+				"uOffset" : 1.7796490496925177e-43,
+				"uScale" : 1.7796490496925177e-43,
+				"vAng" : -1.9525720568027211e+30,
+				"vOffset" : -1.9525703945297191e+30,
+				"vScale" : -1.9525504472536955e+30,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"reflectionFresnelParameters" : 
+			{
+				"bias" : 2.5789018549641508e-27,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					2.6635487871359031e-27,
+					1.5694542800437951e-43,
+					1.8216880036222622e-44
+				],
+				"power" : 1.5694542800437951e-43,
+				"rightColor" : 
+				[
+					0.0,
+					-1.9525699411825368e+30,
+					1.7796490496925177e-43
+				]
+			},
+			"reflectionTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 127,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : true,
+				"level" : -1.9525530162210622e+30,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 7.0064923216240854e-45,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : -1.9527585336103967e+30,
+				"vOffset" : 0.0,
+				"vScale" : 1.4136387421560532e-27,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : true
+			},
+			"refractionFresnelParameters" : 
+			{
+				"bias" : 1.7796490496925177e-43,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					1.5694542800437951e-43,
+					4.0375052133205224e-40,
+					6.7262326287591219e-44
+				],
+				"power" : 1.4012984643248171e-45,
+				"rightColor" : 
+				[
+					1.8216880036222622e-44,
+					0.0,
+					-1.952556642998521e+30
+				]
+			},
+			"refractionTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 127,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0026765028014779091,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.5694542800437951e-43,
+				"uOffset" : 0.0,
+				"uScale" : 1.5694542800437951e-43,
+				"vAng" : -1.9528504119726874e+30,
+				"vOffset" : 2.1860949612967634e-27,
+				"vScale" : 2.1860949612967634e-27,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : true
+			},
+			"specular" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"specularPower" : 0.0,
+			"specularTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 0,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.7796490496925177e-43,
+				"uOffset" : 4.2038953929744512e-45,
+				"uScale" : 1.7796490496925177e-43,
+				"vAng" : 7.4616340628367859e-41,
+				"vOffset" : -1.9528383227144912e+30,
+				"vScale" : -1.9528504119726874e+30,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"tags" : "",
+			"useEmissiveAsIllumination" : false,
+			"useLightmapAsShadowmap" : false,
+			"useReflectionFresnelFromSpecular" : false,
+			"wireframe" : false
+		},
+		{
+			"alpha" : 0.0,
+			"ambient" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"ambientTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 0,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 0.0,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : 0.0,
+				"vOffset" : 0.0,
+				"vScale" : 0.0,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"backFaceCulling" : false,
+			"bumpTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 112,
+				"coordinatesMode" : -238737584,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 7.4616340628367859e-41,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.5694542800437951e-43,
+				"uOffset" : 1.7796490496925177e-43,
+				"uScale" : 1.5694542800437951e-43,
+				"vAng" : 6.8876622118493409e-41,
+				"vOffset" : 2.6097336822578572e-27,
+				"vScale" : 1.4845437789886136e-27,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"checkReadOnlyOnce" : false,
+			"diffuse" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"diffuseFresnelParameters" : 
+			{
+				"bias" : 0.0,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					0.0026765028014779091,
+					-42756472.0,
+					0.0
+				],
+				"power" : 0.0,
+				"rightColor" : 
+				[
+					0.0,
+					0.0,
+					0.0
+				]
+			},
+			"diffuseTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 112,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 0.0,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : 0.0,
+				"vOffset" : 0.0,
+				"vScale" : 0.0,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"disableDepthWrite" : false,
+			"emissive" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"emissiveFresnelParameters" : 
+			{
+				"bias" : 1.8216880036222622e-44,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					0.0026765028014779091,
+					-42756472.0,
+					4.4841550858394146e-44
+				],
+				"power" : 0.0,
+				"rightColor" : 
+				[
+					0.0,
+					0.0,
+					0.0
+				]
+			},
+			"emissiveTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 0,
+				"coordinatesMode" : -238736993,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : true,
+				"level" : -1.9526235872657822e+30,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.7796490496925177e-43,
+				"uOffset" : 1.7796490496925177e-43,
+				"uScale" : 1.7796490496925177e-43,
+				"vAng" : 2.1860939983317912e-27,
+				"vOffset" : -1.9526252495387842e+30,
+				"vScale" : -1.9526234361500547e+30,
+				"wAng" : 1.5694542800437951e-43,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"id" : "",
+			"indexOfRefraction" : -1.9528431584177697e+30,
+			"lightmapTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 112,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : true,
+				"level" : -1.952603791105486e+30,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.5694542800437951e-43,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : -1.952550598369423e+30,
+				"vOffset" : 5.6051938572992683e-45,
+				"vScale" : 1.422316982485462e-27,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : true
+			},
+			"name" : "",
+			"opacityFresnelParameters" : 
+			{
+				"bias" : 0.0,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					0.0,
+					1.8216880036222622e-44,
+					0.0
+				],
+				"power" : 1.4012984643248171e-45,
+				"rightColor" : 
+				[
+					0.0026765028014779091,
+					-42756472.0,
+					0.0
+				]
+			},
+			"opacityTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 127,
+				"coordinatesMode" : -238737203,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 1.4012984643248171e-45,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.7796490496925177e-43,
+				"uOffset" : 1.7796490496925177e-43,
+				"uScale" : 1.7796490496925177e-43,
+				"vAng" : -1.9525720568027211e+30,
+				"vOffset" : -1.9525703945297191e+30,
+				"vScale" : -1.9525504472536955e+30,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"reflectionFresnelParameters" : 
+			{
+				"bias" : 2.5789018549641508e-27,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					2.6635487871359031e-27,
+					1.5694542800437951e-43,
+					1.8216880036222622e-44
+				],
+				"power" : 1.5694542800437951e-43,
+				"rightColor" : 
+				[
+					0.0,
+					-1.9525699411825368e+30,
+					1.7796490496925177e-43
+				]
+			},
+			"reflectionTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 127,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : true,
+				"level" : -1.9525530162210622e+30,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 7.0064923216240854e-45,
+				"uOffset" : 0.0,
+				"uScale" : 0.0,
+				"vAng" : -1.9527585336103967e+30,
+				"vOffset" : 0.0,
+				"vScale" : 1.4136387421560532e-27,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : true
+			},
+			"refractionFresnelParameters" : 
+			{
+				"bias" : 1.7796490496925177e-43,
+				"isenabled" : false,
+				"leftColor" : 
+				[
+					1.5694542800437951e-43,
+					4.0375052133205224e-40,
+					6.7262326287591219e-44
+				],
+				"power" : 1.4012984643248171e-45,
+				"rightColor" : 
+				[
+					1.8216880036222622e-44,
+					0.0,
+					-1.952556642998521e+30
+				]
+			},
+			"refractionTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 127,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0026765028014779091,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.5694542800437951e-43,
+				"uOffset" : 0.0,
+				"uScale" : 1.5694542800437951e-43,
+				"vAng" : -1.9528504119726874e+30,
+				"vOffset" : 2.1860949612967634e-27,
+				"vScale" : 2.1860949612967634e-27,
+				"wAng" : 1.7796490496925177e-43,
+				"wrapU" : false,
+				"wrapV" : true
+			},
+			"specular" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"specularPower" : 0.0,
+			"specularTexture" : 
+			{
+				"animations" : [],
+				"base64String" : "",
+				"coordinatesIndex" : 0,
+				"coordinatesMode" : 0,
+				"getAlphaFromRGB" : false,
+				"hasAlpha" : false,
+				"level" : 0.0,
+				"name" : "",
+				"renderList" : 
+				[
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					},
+					{
+						"autoAnimate" : false,
+						"autoAnimateFrom" : 0,
+						"autoAnimateLoop" : false,
+						"autoAnimateTo" : 0,
+						"dataType" : 0,
+						"framePerSecond" : 0,
+						"keys" : [],
+						"loopBehavior" : 0,
+						"name" : "",
+						"property" : ""
+					}
+				],
+				"uAng" : 1.7796490496925177e-43,
+				"uOffset" : 4.2038953929744512e-45,
+				"uScale" : 1.7796490496925177e-43,
+				"vAng" : 7.4616340628367859e-41,
+				"vOffset" : -1.9528383227144912e+30,
+				"vScale" : -1.9528504119726874e+30,
+				"wAng" : 0.0,
+				"wrapU" : false,
+				"wrapV" : false
+			},
+			"tags" : "",
+			"useEmissiveAsIllumination" : false,
+			"useLightmapAsShadowmap" : false,
+			"useReflectionFresnelFromSpecular" : false,
+			"wireframe" : false
+		}
+	],
+	"meshes" : 
+	[
+		{
+			"actions" : [],
+			"alphaIndex" : 0,
+			"applyFog" : false,
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateSpeed" : 2.1860949612967634e-27,
+			"autoAnimateTo" : 321729350,
+			"billboardMode" : 0,
+			"checkCollisions" : false,
+			"colors" : [],
+			"freezWorldMatrix" : false,
+			"geometryId" : "",
+			"hasVertexAlpha" : false,
+			"id" : "",
+			"indices" : [],
+			"infiniteDistance" : false,
+			"instances" : [],
+			"isEnabled" : false,
+			"isInvisible" : false,
+			"materialId" : "",
+			"matricesIndices" : [],
+			"matricesWeights" : [],
+			"name" : "",
+			"normals" : [],
+			"parentId" : "",
+			"physicsFriction" : 0.0,
+			"physicsImpostor" : 0,
+			"physicsMass" : 0.0,
+			"physicsRestitution" : 0.0,
+			"pickable" : false,
+			"pivotMatrix" : 
+			[
+				[
+					0.0,
+					1.4349040902299993e-27,
+					1.5694542800437951e-43,
+					1.4349040902299993e-27
+				],
+				[
+					1.5694542800437951e-43,
+					1.4349040902299993e-27,
+					1.5694542800437951e-43,
+					1.4349241199014209e-27
+				],
+				[
+					1.5694542800437951e-43,
+					0.0,
+					0.0,
+					0.0
+				],
+				[
+					0.0,
+					0.0,
+					0.0,
+					0.0
+				]
+			],
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"positions" : [],
+			"receiveShadows" : false,
+			"rotation" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"rotationQuaternion" : 
+			[
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"scaling" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"showBoundingBox" : false,
+			"showSubMeshesBoundingBox" : false,
+			"subMeshes" : [],
+			"tags" : "",
+			"uvs" : [],
+			"uvs2" : [],
+			"uvs3" : [],
+			"uvs4" : [],
+			"uvs5" : [],
+			"uvs6" : []
+		},
+		{
+			"actions" : [],
+			"alphaIndex" : 0,
+			"applyFog" : false,
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateLoop" : false,
+			"autoAnimateSpeed" : 2.1860949612967634e-27,
+			"autoAnimateTo" : 321729350,
+			"billboardMode" : 0,
+			"checkCollisions" : false,
+			"colors" : [],
+			"freezWorldMatrix" : false,
+			"geometryId" : "",
+			"hasVertexAlpha" : false,
+			"id" : "",
+			"indices" : [],
+			"infiniteDistance" : false,
+			"instances" : [],
+			"isEnabled" : false,
+			"isInvisible" : false,
+			"materialId" : "",
+			"matricesIndices" : [],
+			"matricesWeights" : [],
+			"name" : "",
+			"normals" : [],
+			"parentId" : "",
+			"physicsFriction" : 0.0,
+			"physicsImpostor" : 0,
+			"physicsMass" : 0.0,
+			"physicsRestitution" : 0.0,
+			"pickable" : false,
+			"pivotMatrix" : 
+			[
+				[
+					0.0,
+					1.4349040902299993e-27,
+					1.5694542800437951e-43,
+					1.4349040902299993e-27
+				],
+				[
+					1.5694542800437951e-43,
+					1.4349040902299993e-27,
+					1.5694542800437951e-43,
+					1.4349241199014209e-27
+				],
+				[
+					1.5694542800437951e-43,
+					0.0,
+					0.0,
+					0.0
+				],
+				[
+					0.0,
+					0.0,
+					0.0,
+					0.0
+				]
+			],
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"positions" : [],
+			"receiveShadows" : false,
+			"rotation" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"rotationQuaternion" : 
+			[
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"scaling" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"showBoundingBox" : false,
+			"showSubMeshesBoundingBox" : false,
+			"subMeshes" : [],
+			"tags" : "",
+			"uvs" : [],
+			"uvs2" : [],
+			"uvs3" : [],
+			"uvs4" : [],
+			"uvs5" : [],
+			"uvs6" : []
+		}
+	],
+	"multiMaterials" : 
+	[
+		{
+			"boxes" : []
+		},
+		{
+			"boxes" : []
+		}
+	],
+	"particleSystems" : 
+	[
+		{
+			"animations" : [],
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateSpeed" : 0.0,
+			"autoAnimateTo" : 0,
+			"autoAnimteLoop" : false,
+			"blendMode" : 0,
+			"capacity" : 0,
+			"color1" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"color2" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"colorDead" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"deadAlpha" : 0.0,
+			"direction1" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"direction2" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"emitRate" : 0.0,
+			"emitterId" : "",
+			"gravity" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"linkToEmitter" : false,
+			"maxAngularSpeed" : 0.0,
+			"maxEmitBox" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"maxLifeTime" : 0.0,
+			"maxSize" : 0.0,
+			"maxemitPower" : 0.0,
+			"minAngularSPeed" : 0.0,
+			"minEmitBox" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"minEmitPower" : 0,
+			"minLifeTime" : 0.0,
+			"minSize" : 0.0,
+			"targetStopFrame" : 0,
+			"textureMask" : 
+			[
+				1.4349040902299993e-27,
+				1.5694542800437951e-43,
+				1.4349040902299993e-27,
+				1.5694542800437951e-43
+			],
+			"textureName" : "",
+			"updateSpeed" : 0.0
+		},
+		{
+			"animations" : [],
+			"autoAnimate" : false,
+			"autoAnimateFrom" : 0,
+			"autoAnimateSpeed" : 0.0,
+			"autoAnimateTo" : 0,
+			"autoAnimteLoop" : false,
+			"blendMode" : 0,
+			"capacity" : 0,
+			"color1" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"color2" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"colorDead" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"deadAlpha" : 0.0,
+			"direction1" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"direction2" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"emitRate" : 0.0,
+			"emitterId" : "",
+			"gravity" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"linkToEmitter" : false,
+			"maxAngularSpeed" : 0.0,
+			"maxEmitBox" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"maxLifeTime" : 0.0,
+			"maxSize" : 0.0,
+			"maxemitPower" : 0.0,
+			"minAngularSPeed" : 0.0,
+			"minEmitBox" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"minEmitPower" : 0,
+			"minLifeTime" : 0.0,
+			"minSize" : 0.0,
+			"targetStopFrame" : 0,
+			"textureMask" : 
+			[
+				1.4349040902299993e-27,
+				1.5694542800437951e-43,
+				1.4349040902299993e-27,
+				1.5694542800437951e-43
+			],
+			"textureName" : "",
+			"updateSpeed" : 0.0
+		}
+	],
+	"physicsEnabled" : true,
+	"physicsEngine" : "",
+	"physicsGravity" : 
+	[
+		1.7796490496925177e-43,
+		null,
+		null
+	],
+	"reflectionProbes" : 
+	[
+		{
+			"is3D" : false,
+			"isCube" : false,
+			"refreshRate" : 0,
+			"renderList" : 
+			[
+				"0",
+				"1"
+			],
+			"renderTragetSize" : 0
+		},
+		{
+			"is3D" : false,
+			"isCube" : false,
+			"refreshRate" : 0,
+			"renderList" : 
+			[
+				"0",
+				"1"
+			],
+			"renderTragetSize" : 0
+		}
+	],
+	"shadowGenerators" : 
+	[
+		{
+			"bias" : 0.0,
+			"forceBackFacesOnly" : 0.0,
+			"lightId" : "",
+			"mapSize" : 0,
+			"renderList" : [],
+			"useBlurVarianceShadowMap" : false,
+			"usePoissonSampling" : false,
+			"useVarianceShadowMap" : false
+		},
+		{
+			"bias" : 0.0,
+			"forceBackFacesOnly" : 0.0,
+			"lightId" : "",
+			"mapSize" : 0,
+			"renderList" : [],
+			"useBlurVarianceShadowMap" : false,
+			"usePoissonSampling" : false,
+			"useVarianceShadowMap" : false
+		}
+	],
+	"skeletons" : 
+	[
+		{
+			"bones" : [],
+			"id" : "",
+			"name" : "",
+			"needInitialSkinMatrix" : false
+		},
+		{
+			"bones" : [],
+			"id" : "",
+			"name" : "",
+			"needInitialSkinMatrix" : false
+		}
+	],
+	"sounds" : 
+	[
+		{
+			"autoplay" : false,
+			"coneInnerAngle" : 0.0,
+			"coneOuterAngle" : 0.0,
+			"coneOuterGain" : 0.0,
+			"connectMeshId" : "",
+			"distanceModel" : "",
+			"isDirectional" : false,
+			"localDirectionToMesh" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"loop" : false,
+			"maxDistance" : 0.0,
+			"name" : "",
+			"panningModel" : "",
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"refDistance" : 0.0,
+			"rolloffFactor" : 0.0,
+			"soundTraackId" : 0,
+			"spacialSound" : false,
+			"volume" : 0.0
+		},
+		{
+			"autoplay" : false,
+			"coneInnerAngle" : 0.0,
+			"coneOuterAngle" : 0.0,
+			"coneOuterGain" : 0.0,
+			"connectMeshId" : "",
+			"distanceModel" : "",
+			"isDirectional" : false,
+			"localDirectionToMesh" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"loop" : false,
+			"maxDistance" : 0.0,
+			"name" : "",
+			"panningModel" : "",
+			"position" : 
+			[
+				0.0,
+				0.0,
+				0.0
+			],
+			"refDistance" : 0.0,
+			"rolloffFactor" : 0.0,
+			"soundTraackId" : 0,
+			"spacialSound" : false,
+			"volume" : 0.0
+		}
+	]
+}
