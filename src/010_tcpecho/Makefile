@@ -1,10 +1,12 @@
 CC=gcc
-SRC=./src/a.c
+SRC=\
+	./src/a.c\
+	../lib/mongoose/mongoose.c
 BIN=./bin/a
 CFLAGS=\
-       `pkg-config --cflags mongoose`
+	-I../lib/mongoose
 LIBS=\
-       `pkg-config --libs mongoose`
+	-lm
 $(BIN):$(SRC)
 	mkdir -p $(@D)
 	$(CC)\

@@ -1,10 +1,12 @@
 CC=gcc
-SRC=./src/a.c
+SRC=\
+	./src/a.c\
+	../lib/mongoose/mongoose.c
 BIN=./bin/a
 CFLAGS=\
-       `pkg-config --cflags mongoose`
+	-I../lib/mongoose
 LIBS=\
-       `pkg-config --libs mongoose`
+	-lm
 $(BIN):$(SRC)
 	mkdir -p $(@D)
 	$(CC)\
@@ -14,8 +16,11 @@ $(BIN):$(SRC)
 		-o $(BIN)
 .phony:\
 	run\
+	test\
 	clean
 run:
 	$(BIN)
+test:
+	cat /dev/urandom|nc localhost 1234 > /dev/null
 clean:
 	rm $(BIN)
