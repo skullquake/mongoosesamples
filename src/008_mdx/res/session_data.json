@@ -1,0 +1,16 @@
+{
+  "instructions": [
+    {
+      "target": "system",
+      "type": "open_form",
+      "args": {
+        "FormTarget": "content",
+        "FormWidth": 0,
+        "FormResizable": true,
+        "FormHeight": 0,
+        "FormName": "Anonymous.pg_home",
+        "FormPath": "Anonymous/pg_home.page.xml"
+      }
+    }
+  ]
+}

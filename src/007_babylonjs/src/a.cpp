@@ -1,13 +1,12 @@
-#include<Poco/Base64Encoder.h>
+#include<mongoose-cpp/Server.h>
+#include<mongoose-cpp/WebController.h>
 #include<algorithm>
 #include<cstddef>
 #include<cstdlib>
 #include<fstream>
 #include<iostream>
 #include<iterator>
-#include<jsoncpp/json/json.h>
-#include<mongoose-cpp/Server.h>
-#include<mongoose-cpp/WebController.h>
+#include<json/json.h>
 #include<numeric>
 #include<signal.h>
 #include<sstream>
@@ -16,17 +15,19 @@
 #include<unistd.h>
 #include<utility>
 #include<vector>
+#include<Poco/Base64Encoder.h>
 
 
 using namespace std;
 using namespace Mongoose;
+//binary outputstream
 template<class T,class CharT=char,class Traits=std::char_traits<CharT>>
 class ostreambin_iterator:public std::iterator<std::output_iterator_tag,void,void,void,void>{
 	public:
 		typedef std::basic_ostream<CharT,Traits> ostream_type;
 		typedef Traits traits_type;
 		typedef CharT char_type;
-		ostreambin_iterator(ostream_type& stream):stream_(stream) { }
+		ostreambin_iterator(ostream_type& stream):stream_(stream){}
 		ostreambin_iterator& operator=(T const& value){
 			stream_.write(reinterpret_cast<const char*>(&value),sizeof(T));
 			return *this;
@@ -71,22 +72,32 @@ class MyController:public WebController{
 				oss,
 				Poco::BASE64_NO_PADDING
 			);
-
+			ostreambin_iterator<float> outvpos(b64out);
+			//idx:flat
 			std::vector<uint16_t> vidx;
 			vidx.push_back(0);
 			vidx.push_back(1);
 			vidx.push_back(2);
-			vidx.push_back(0);
+			vidx.push_back(0);//pad
+			std::vector<uint16_t> vidx2={0,1,2,0};
 			ostreambin_iterator<uint16_t> outvidx(b64out);
 			copy(std::begin(vidx),std::end(vidx),outvidx);
-
+			/*
+			//idx:flat
 			std::vector<float> vpos;
 			vpos.push_back(0);vpos.push_back(0);vpos.push_back(0);
 			vpos.push_back(1);vpos.push_back(0);vpos.push_back(0);
 			vpos.push_back(0);vpos.push_back(1);vpos.push_back(0);
-			ostreambin_iterator<float> outvpos(b64out);
 			copy(std::begin(vpos),std::end(vpos),outvpos);
-
+			*/
+			std::vector<std::vector<float>> vposc={
+				{1,0,0},
+				{0,1,0},
+				{0,0,0}
+			};
+			for(auto vpos:vposc){
+				copy(std::begin(vpos),std::end(vpos),outvpos);
+			}
 			b64out.close();
 
 			buffer["uri"]="data:application/octet-stream;base64,"+oss.str();
@@ -163,6 +174,7 @@ int main(int argc,char** argv){
 	server.registerController(&myController);
 	server.setOption("enable_directory_listing","yes");
 	server.setOption("document_root","./pub");
+	server.setOption("access_log_file","./log.txt");
 	server.start(); 
 	while(1){
 		sleep(10000);
